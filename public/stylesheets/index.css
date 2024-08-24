@@ -1,0 +1,128 @@
+html {
+  overflow-x: hidden;
+  padding: 0px;
+  margin: 0px
+}
+
+body {
+  font-family: "Huiwen-mincho";
+}
+
+main {
+  display: flex;
+  height: 100vh;
+}
+
+.main-content {
+  display: flex;
+  align-self: center;
+}
+
+#gate {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 99999;
+  display: flex;
+}
+
+#gate:before,
+#gate:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  z-index: -1;
+  background-color: #fff;
+  transition: all 0.3s ease 0s;
+}
+
+#gate:after {
+  left: auto;
+  right: 0;
+}
+
+/* 門縫本體 */
+#gate .door-crack {
+  margin: auto;
+  width: 1px;
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.8s ease 0s;
+}
+
+/* 門縫本身拉長的部分 */
+.door-crack:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 1px;
+  height: 0%;
+  transform: translateY(-50%);
+  background-color: #000;
+  animation: crackheight 1000ms ease-in-out 0s forwards;
+}
+
+/* 門縫那條流動的部分 */
+.door-crack:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background-color: #C8C8C8;
+  transform: translateY(-100%);
+  animation: crackflow 1200ms linear 0s infinite;
+  animation-delay: 2000ms;
+}
+
+@keyframes crackheight {
+  0% {
+    height: 0%;
+  }
+
+  100% {
+    height: 100%;
+  }
+}
+
+@keyframes crackflow {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(200%);
+  }
+}
+
+.opened .door-crack:after {
+  opacity: 0;
+}
+
+.opened .door-crack {
+  opacity: 0;
+  height: 100% !important;
+}
+
+.opened:before,
+.opened:after {
+  animation: opening 300ms ease-in-out 500ms forwards;
+}
+
+@keyframes opening {
+  0% {
+    width: 50%;
+  }
+
+  100% {
+    width: 0%;
+  }
+}

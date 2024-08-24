@@ -1,11 +1,45 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <%- include('models/bs_css.ejs') %>
+  <link rel="stylesheet" href="/stylesheets/index.css">
+  <link rel="stylesheet" href="https://chinese-fonts-cdn.deno.dev/packages/hwmct/dist/汇文明朝体/result.css">
+</head>
+
+<body class="bg-black text-light">
+  <main class="container-fluid text-center">
+    <div class="main-content">
+
+      <div id="gate">
+        <div class="door-crack"></div>
+      </div>
+      <div class="row">
+        <img src="/images/banner.gif" alt="">
+        <div class="row mt-5 m-auto">
+          <div class="col-md-8 m-auto">
+            <div class="row">
+              <div class="col-md-4">
+                世界並非如你想像...
+              </div>
+              <div class="col-md-4">
+                所見所聞並非真實...
+              </div>
+              <div class="col-md-4">
+                你相信什麼...?
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <%- include('models/bs_js.ejs') %>
+  <script src="/javascripts/index.js"></script>
+</body>
+
 </html>
