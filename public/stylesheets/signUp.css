@@ -1,0 +1,119 @@
+body {
+    min-height: 100vh;
+    background: #000;
+}
+
+main {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+main::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#000000, #FF44FF, #30ffff);
+    animation: animate 5s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+main span {
+    position: relative;
+    display: block;
+    width: calc(6.25vw - 2px);
+    height: calc(6.25vw - 2px);
+    background: #181818;
+    z-index: 2;
+    transition: 1.5s;
+}
+
+main span:hover {
+    opacity: 10%;
+    transition: 0s;
+}
+
+main .signUp {
+    position: absolute;
+    /* width: 00px; */
+    min-height: 460px;
+    background: #222;
+    z-index: 1000;
+    display: flex;
+    padding: 40px;
+    border-radius: 4px;
+    box-shadow: -45px -45px 35px #30ffff, 45px 45px 35px #FF44FF;
+    animation: shadow 20s linear infinite;
+    transform: translateZ(0);
+}
+
+@keyframes shadow {
+    0% {
+        box-shadow: -45px -45px 35px #30ffff, 45px 45px 35px #FF44FF;
+    }
+
+    25% {
+        box-shadow: 0px 0px 600px #30ffff, 0px 0px 600px #FF44FF;
+    }
+
+    50% {
+        box-shadow: -45px -45px 35px #FF44FF, 45px 45px 35px #30ffff;
+    }
+
+    75% {
+        box-shadow: 0px 0px 600px #FF44FF, 0px 0px 600px #30ffff;
+    }
+
+    100% {
+        box-shadow: -45px -45px 35px #30ffff, 45px 45px 35px #FF44FF;
+    }
+}
+
+
+main .signUp .content h2 {
+    font-size: 2em;
+    color: #30ffff;
+    text-transform: uppercase;
+}
+
+.form-control::placeholder {
+    color: white;
+    opacity: 1;
+}
+
+#submit {
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    background: #30ffff;
+    color: #000;
+    font-weight: 600;
+    font-size: 1.35em;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+}
+
+.modal-dialog {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+}
