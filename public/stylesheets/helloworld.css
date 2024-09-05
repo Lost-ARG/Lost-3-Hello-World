@@ -1,0 +1,45 @@
+body {
+    background-color: #111;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.floating-image {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    animation: floatUp 10s linear infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        bottom: -10%;
+        /* 從視窗底部開始 */
+        opacity: 5;
+    }
+
+    100% {
+        bottom: 100%;
+        /* 漂浮到視窗上方外 */
+        opacity: 0;
+        /* 逐漸消失 */
+    }
+}
+
+.head {
+    font-size: 100px;
+}
+
+.lock-block {
+    height: 150px;
+    line-height: 150px;
+}
+
+input[type="text"] {
+    font-size: 50px;
+    border-radius: 0;
+}
+
+.hint {
+    font-size: 40px;
+}

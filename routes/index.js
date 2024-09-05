@@ -13,4 +13,8 @@ router.get('/signUp', function(req, res, next) {
   res.render('signUp', { title: title });
 });
 
+router.get('/helloworld', function(req, res, next) {
+  res.render('helloworld', { title: title });
+});
+
 module.exports = router;
