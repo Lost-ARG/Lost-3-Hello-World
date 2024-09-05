@@ -1,8 +1,13 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+
+const backstageRouter = require('./backstage')
+
 require('dotenv').config()
 
 const title = process.env.TITLE;
+
+router.use('/backstage', backstageRouter);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
