@@ -6,7 +6,7 @@ const title = process.env.TITLE;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: title });
+  res.render('backstage/home', { title: title });
 });
 
 router.get('/login', function(req, res, next) {

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Backstage Home</title>
+  <%- include('../models/bs_css.ejs') %>
+</head>
+
+<body class="bg-dark text-light">
+  <%- include('./nav.ejs') %>
+  <div class="container pt-5">
+    <div class="row text-center">
+      <h1>Overview</h1>
+      <div class="col-lg-5 m-auto mt-4 border fs-5">
+
+        <div class="row p-4">
+          <h3>隊伍數量</h3>
+          <hr>
+          <div class="row m-auto border">
+            <div class="col-4 p-0">已報名</div>
+            <div class="col-8 p-0">
+              <span id="signup-num"></span>
+            </div>
+          </div>
+          <div class="row m-auto border">
+            <div class="col-4 p-0">已驗證</div>
+            <div class="col-8 p-0">
+              <span id="verify-num"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-3 p-4">
+          <h3>隊伍進度</h3>
+          <hr>
+          <div class="row m-auto border">
+            <div class="col-4 p-0">最快隊伍</div>
+            <div class="col-8 p-0">
+              <span id="fastest-team"></span>
+            </div>
+          </div>
+          <div class="row m-auto border">
+            <div class="col-4 p-0">最高進度</div>
+            <div class="col-8 p-0">
+              <span id="latest-progress"></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <%- include('../models/bs_js.ejs') %>
+  <script src="/javascripts/backstage/home.js"></script>
+</body>
+
+</html>
