@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const gameProgressSchema = new Schema({
+  level: { type: Number, default: 0 },
+  timestamp: { type: Date, default: Date.now }
+});
+
 // 定義成員 Schema
 const memberSchema = new Schema({
   name: { type: String, required: true },
@@ -13,7 +18,7 @@ const memberSchema = new Schema({
 const teamSchema = new Schema({
   name: { type: String, required: true },
   password: { type: String, required: true }, // 注意：實際應用中應考慮使用加密處理密碼
-  game_progress: { type: Number, default: 0 },
+  game_progress: [gameProgressSchema],
   members: {
     member_1: { type: memberSchema, default: {} },
     member_2: { type: memberSchema, default: {} },

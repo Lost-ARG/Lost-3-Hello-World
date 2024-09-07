@@ -143,6 +143,7 @@ const signUp = async (req, res) => {
       member_2: formData["member_2"],
       member_3: formData["member_3"],
     }
+    teamData["game_progress"] = {}
     await creatTeam(teamData);
     // 發送驗證信箱 Email() ? {'message':'報名完成，請所有成員至 email 信箱收取信件'} : {'error':'系統錯誤，請聯絡主辦單位 MOLi 粉絲團 (無法寄送驗證信件)'}
     res.send({ status: 200 });
