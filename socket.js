@@ -9,8 +9,12 @@ const socket = {
 io.on("connection", (socket) => {
   console.log('socket connected successfully');
   socket.on('get-team-info', async (arg) => {
-    const teams = await findTeam();
-    socket.emit('team-info', teams)
+    try {
+      const teams = await findTeam();
+      socket.emit('team-info', teams)
+    } catch (error) {
+      console.error(error);
+    }
   })
 })
 
