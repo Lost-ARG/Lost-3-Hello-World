@@ -1,9 +1,10 @@
-const { findAdmin } = require('../service/database/backstage')
+const { findAdmin } = require('../service/database/backstage');
+const { findTeam } = require('../service/database/teamService');
 
 const login = async (req, res) => {
   try {
     const formData = req.body;
-    if(!(formData["username"] && formData["password"])) {
+    if (!(formData["username"] && formData["password"])) {
       res.redirect('/backstage/login');
       return;
     }
@@ -13,7 +14,7 @@ const login = async (req, res) => {
       password: formData['password'],
     });
 
-    if(admin.length === 0) {
+    if (admin.length === 0) {
       res.redirect('/backstage/login');
       return;
     }
@@ -23,6 +24,17 @@ const login = async (req, res) => {
   }
 }
 
+const teamList = async (req, res) => {
+  try {
+    const teams = await findTeam();
+    res.send({ status: 200, data: teams })
+  } catch (error) {
+    res.send({ status: 500 })
+    console.error(error);
+  }
+}
+
 module.exports = {
-  login
+  login,
+  teamList
 }

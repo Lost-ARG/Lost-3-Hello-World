@@ -13,5 +13,8 @@ router.get('/login', function(req, res, next) {
   res.render('backstage/login', { title: title });
 });
 
+router.get('/team-list', function(req, res, next) {
+  res.render('backstage/teamList', { title: title });
+});
 
 module.exports = router;
