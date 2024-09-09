@@ -1,5 +1,13 @@
+const dayjs = require('dayjs');
+const utc = require('dayjs/plugin/utc');
+const timezone = require('dayjs/plugin/timezone');
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
+
 const { findAdmin } = require('../service/database/backstage');
 const { findTeam } = require('../service/database/teamService');
+
 
 const login = async (req, res) => {
   try {
@@ -34,7 +42,24 @@ const teamList = async (req, res) => {
   }
 }
 
+const team = async (req, res) => {
+  try {
+    const { team } = req.query;
+
+    const teams = await findTeam({ name: team });
+    for(let i = 0; i < teams[0]["game_progress"].length; i += 1) {
+      const time = teams[0]["game_progress"][i]["timestamp"];
+      teams[0]["game_progress"][i]["timestamp"] = dayjs(time).utc("Z").tz("Asia/Taipei").format();
+    }
+    res.send({ status: 200, data: teams[0] })
+  } catch (error) {
+    res.send({ status: 500 })
+    console.error(error);
+  }
+}
+
 module.exports = {
   login,
-  teamList
+  teamList,
+  team
 }

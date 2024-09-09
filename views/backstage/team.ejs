@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Backstage Team</title>
+  <%- include('../models/bs_css.ejs') %>
+</head>
+
+<body class="bg-dark text-light">
+  <%- include('./nav.ejs') %>
+  <div class="container mb-5 pt-5 pb-5">
+    <div class="row text-center">
+      <h1 id="team-name"></h1>
+      <div class="col-lg-5 m-auto mt-4 border fs-5">
+
+        <div class="row p-4">
+          <h3>隊員資訊</h3>
+          <hr>
+          <div id="members">
+            
+          </div>
+        </div>
+
+        <div class="row mt-3 p-4">
+          <h3>隊伍進度</h3>
+          <hr>
+
+          <div id="progress">
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <%- include('../models/bs_js.ejs') %>
+  <script src="/javascripts/backstage/team.js"></script>
+</body>
+
+</html>

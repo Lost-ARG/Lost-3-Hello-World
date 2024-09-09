@@ -17,4 +17,8 @@ router.get('/team-list', function(req, res, next) {
   res.render('backstage/teamList', { title: title });
 });
 
+router.get('/team', function(req, res, next) {
+  res.render('backstage/team', { title: title });
+});
+
 module.exports = router;
