@@ -27,16 +27,16 @@ socket.on('team-info', teamInfo => {
       verifyNum += 1;
     }
     // 找最快的隊伍
-    const levelSub = curTeam["game_progress"].length - fastestTeam["game_progress"].length;
+    const curLevel = curTeam["game_progress"][curTeam["game_progress"].length - 1];
+    const fastestLevel = fastestTeam["game_progress"][fastestTeam["game_progress"].length - 1];
+    const levelSub = curLevel["level"] - fastestLevel["level"];
     if (levelSub > 0) {
       fastest = i;
     } else if (levelSub === 0) {
       // 同進度，比時間
-      const curLevel = curTeam["game_progress"][curTeam["game_progress"].length - 1];
-      const fastestLevel = fastestTeam["game_progress"][fastestTeam["game_progress"].length - 1];
       const curLevelTime = new Date(curLevel["timestamp"]);
       const fastestLevelTime = new Date(fastestLevel["timestamp"]);
-      if(curLevelTime > fastestLevelTime) {
+      if (curLevelTime > fastestLevelTime) {
         fastest = i;
       }
     }
@@ -45,7 +45,7 @@ socket.on('team-info', teamInfo => {
   signUpNumElement.innerHTML = signUpNum;
   verifyNumElement.innerHTML = verifyNum;
   fastestTeamElement.innerHTML = fastestTeam['name'];
-  latestProgressElement.innerHTML = fastestTeam['game_progress'].length - 1;
+  latestProgressElement.innerHTML = fastestTeam["game_progress"][fastestTeam["game_progress"].length - 1]["level"];
 })
 
 setInterval(getTeamInfo, 1000);
