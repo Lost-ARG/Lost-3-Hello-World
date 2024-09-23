@@ -22,4 +22,8 @@ router.get('/helloworld', function(req, res, next) {
   res.render('helloworld', { title: title });
 });
 
+router.get('/story', function(req, res, next) {
+  res.render('story', { title: title });
+});
+
 module.exports = router;

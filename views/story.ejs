@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Story</title>
+  <!-- 封面的 Hello World 的字體 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jacques+Francois+Shadow&display=swap" rel="stylesheet">
+  <%- include('models/bs_css.ejs') %>
+  <link rel="stylesheet" href="/stylesheets/story.css">
+</head>
+
+<body>
+
+<!-- Modal -->
+<div class="modal fade" id="player-input" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <label for="team-code">請輸入隊伍代碼</label>
+        <input class="form-control" id="team-code" type="text">
+        <label for="story-code">請輸入故事代碼</label>
+        <input class="form-control" id="story-code" type="text">
+        <div id="error-msg">
+          
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="readInput()">Enter</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="notebook">
+    <div class="cover-front">
+      <h1 class="label d-flex align-items-center justify-content-center">Hello World</h1>
+    </div>
+    <div class="pages d-flex align-items-center justify-content-center">
+
+    </div>
+    <div class="cover-back"></div>
+  </div>
+  <%- include('models/bs_js.ejs') %>
+  <script src="/javascripts/story.js"></script>
+</body>
+
+</html>

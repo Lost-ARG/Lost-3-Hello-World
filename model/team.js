@@ -16,6 +16,7 @@ const memberSchema = new Schema({
 
 // 定義團隊 Schema
 const teamSchema = new Schema({
+  code: { type: String, default: undefined },
   name: { type: String, required: true },
   password: { type: String, required: true }, // 注意：實際應用中應考慮使用加密處理密碼
   game_progress: [gameProgressSchema],

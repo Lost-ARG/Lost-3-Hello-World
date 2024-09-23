@@ -27,9 +27,18 @@ const countTeam = async (condition = {}) => {
   }
 }
 
+const updateTeamProgress = async (condition, data) => {
+  try {
+    const result = await Team.updateOne(condition, { $push: data });
+    return result;
+  } catch (error) {
+    throw new Error(`Update Team Failed, Error: ${error.toString()}`)
+  }
+}
 
 module.exports = {
   creatTeam,
   findTeam,
   countTeam,
+  updateTeamProgress,
 }
