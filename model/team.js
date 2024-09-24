@@ -27,6 +27,32 @@ const teamSchema = new Schema({
   }
 });
 
+// 使用 "pre" middleware，在保存之前生成流水號
+teamSchema.pre('save', async function (next) {
+  const doc = this;
+
+  // 查找最新一條紀錄，依照 serialNumber 降序排序
+  const lastDoc = await mongoose.model('Team').findOne().sort({ code: -1 });
+
+  let newSerialNumber;
+
+  if (lastDoc) {
+    // 提取當前最大的數字部分加 1
+    const lastNumber = parseInt(lastDoc.code.slice(1)); // 提取數字部分
+    const nextNumber = lastNumber + 1;
+
+    // 生成流水號
+    newSerialNumber = `T${nextNumber.toString().padStart(3, '0')}`;
+  } else {
+    // 初始值 is T001
+    newSerialNumber = 'T001';
+  }
+
+  doc.code = newSerialNumber;
+
+  next();
+});
+
 const Team = mongoose.model('Team', teamSchema);
 
 module.exports = Team;
