@@ -123,7 +123,7 @@ const signUp = async (req, res) => {
       return;
     }
     // 檢查隊伍數量，是否超過上限(目前上限定為 50 隊)
-    if (!hasTeamQuota()) {
+    if (!(await hasTeamQuota())) {
       res.send({ status: 400, message: "報名組數已滿，若有加開名額會另行公佈於粉絲團" });
       return;
     }
