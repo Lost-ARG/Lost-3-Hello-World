@@ -22,6 +22,11 @@ router.get('/helloworld', function(req, res, next) {
   res.render('helloworld', { title: title });
 });
 
+// Level 2
+router.get('/pascal', function(req, res, next) {
+  res.render('pascal', { title: title });
+});
+
 router.get('/story', function(req, res, next) {
   res.render('story', { title: title });
 });

@@ -1,0 +1,7 @@
+.disable-dbl-tap-zoom {
+  touch-action: manipulation;
+}
+
+.container {
+    user-select: none;
+}

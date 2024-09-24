@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+  <title>
+    <%= title %>
+  </title>
+  <%- include('models/bs_css.ejs') %>
+    <link rel="stylesheet" href="/stylesheets/pascal.css">
+</head>
+
+<body class="bg-dark text-light disable-dbl-tap-zoom">
+
+  <!-- Modal -->
+  <div class="modal fade" id="result" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center text-dark">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <main class="container pt-5">
+    <div class="row mt-5">
+      <div class="col text-center">↑</div>
+    </div>
+    <div class="row">
+      <div class="col text-center">↑</div>
+      <div class="col text-center">↑</div>
+    </div>
+    <div class="row">
+      <div class="col text-center">↑</div>
+      <div class="col text-center">↑</div>
+      <div class="col text-center">↓</div>
+      <div class="col text-center">↑</div>
+    </div>
+    <div class="row">
+      <div class="col text-center">↑</div>
+      <div class="col text-center">↑</div>
+      <div class="col text-center">↑</div>
+      <div class="col text-center">↑</div>
+      <div class="col text-center">↑</div>
+    </div>
+    <!-- <div class="row">
+      <div class="col text-center">↑</div>
+      <div class="col text-center">↑</div>
+      <div class="col text-center">↓</div>
+      <div class="col text-center">↓</div>
+      <div class="col text-center">↑</div>
+      <div class="col text-center">↑</div>
+      <div class="col text-center">↓</div>
+      <div class="col text-center">↑</div>
+      <div class="col text-center">↓</div>
+      <div class="col text-center">↓</div>
+      <div class="col text-center">↑</div>
+    </div> -->
+    <div id="clickInput" class="row mt-5">
+
+    </div>
+    <div class="row mt-5">
+      <div class="col-lg-6 m-auto text-center">
+        <button class="btn btn-secondary w-25 inputBtn" type="button">↑</button>
+        <button class="btn btn-secondary w-25 inputBtn" type="button">↓</button>
+      </div>
+    </div>
+  </main>
+  <%- include('models/bs_js.ejs') %>
+    <script src="/javascripts/pascal.js"></script>
+</body>
+
+</html>
