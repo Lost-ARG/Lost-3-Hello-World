@@ -138,7 +138,7 @@ const renderPages = async (teamCode, storyCode) => {
     document.getElementById("story-code").value = "";
     generatePages(story);
   } catch (error) {
-
+    console.error(error);
   }
 }
 
