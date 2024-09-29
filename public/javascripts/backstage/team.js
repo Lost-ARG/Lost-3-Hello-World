@@ -73,6 +73,7 @@ const fillProgress = (data) => {
     html += `<div class="col-12">${data[i]["timestamp"]}</div>`;
     html += `</div>`;
     html += `</div>`;
+    html += `</div>`;
   }
   progressElement.innerHTML = html;
 
