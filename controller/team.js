@@ -29,7 +29,7 @@ const updateProgress = async (req, res) => {
       invalid.push("隊伍進度與故事進度不符");
       res.send({ status: 400, result: invalid });
       return;
-    } else if(progressSub === 1) {
+    } else if(progressSub > 0 && progressSub <= 1) {
       await updateTeamProgress({ code: teamCode }, { game_progress: { level: story[0]["progress_num"] } });
     }
     res.send({ status: 200 });
