@@ -66,7 +66,7 @@ const fillProgress = (data) => {
   let html = "";
   for (let i = data.length - 1; i >= 0; i -= 1) {
     html += `<div class="row m-auto mb-5 border-bottom">`;
-    html += `<div class="col-lg-4 col-12  d-flex align-items-center justify-content-center">第 ${i} 關</div>`;
+    html += `<div class="col-lg-4 col-12  d-flex align-items-center justify-content-center">第 ${data[i]["level"]} 關</div>`;
     html += `<div class="col-lg-8 col-12">`
     html += `<div class="row">`;
     html += `<div class="col-12">開始時間</div>`;
