@@ -24,14 +24,14 @@ const updateProgress = async (req, res) => {
     }
 
     // 檢查 story code 是否符合 Team 的進度(沒有超過當前進度 +1 的故事)
-    if (story[0]["progress_num"] - team[0]["game_progress"][team[0]["game_progress"].length - 1]["level"] > 1) {
-
+    const progressSub = story[0]["progress_num"] - team[0]["game_progress"][team[0]["game_progress"].length - 1]["level"];
+    if (progressSub > 1) {
       invalid.push("隊伍進度與故事進度不符");
       res.send({ status: 400, result: invalid });
       return;
+    } else if(progressSub === 1) {
+      await updateTeamProgress({ code: teamCode }, { game_progress: { level: story[0]["progress_num"] } });
     }
-
-    await updateTeamProgress({ code: teamCode }, { game_progress: { level: story[0]["progress_num"] } });
     res.send({ status: 200 });
   } catch (error) {
     console.error(error);
