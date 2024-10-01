@@ -5,7 +5,7 @@ const timezone = require('dayjs/plugin/timezone');
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
-const { findAdmin } = require('../service/database/backstage');
+const { findAdmin } = require('../service/database/adminService');
 const { findTeam } = require('../service/database/teamService');
 
 
