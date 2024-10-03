@@ -21,4 +21,12 @@ router.get('/team', function(req, res, next) {
   res.render('backstage/team', { title: title });
 });
 
+router.get('/rfid-list', function(req, res, next) {
+  res.render('backstage/rfidList', { title: title });
+});
+
+router.get('/register-rfid', function(req, res, next) {
+  res.render('backstage/registerRFID', { title: title });
+});
+
 module.exports = router;

@@ -7,6 +7,7 @@ dayjs.extend(timezone);
 
 const { findAdmin } = require('../service/database/adminService');
 const { findTeam } = require('../service/database/teamService');
+const { creatRFIDCard, findRFIDCard } = require('../service/database/RFIDCardService');
 
 
 const login = async (req, res) => {
@@ -47,7 +48,7 @@ const team = async (req, res) => {
     const { team } = req.query;
 
     const teams = await findTeam({ name: team });
-    for(let i = 0; i < teams[0]["game_progress"].length; i += 1) {
+    for (let i = 0; i < teams[0]["game_progress"].length; i += 1) {
       const time = teams[0]["game_progress"][i]["timestamp"];
       teams[0]["game_progress"][i]["timestamp"] = dayjs(time).utc("Z").tz("Asia/Taipei").format();
     }
@@ -58,8 +59,34 @@ const team = async (req, res) => {
   }
 }
 
+const registerRFID = async (req, res) => {
+  try {
+    const formData = req.body;
+    await creatRFIDCard({
+      card_id: formData["card_id"],
+      type: formData["type"]
+    })
+    res.send({ status: 200 })
+  } catch (error) {
+    console.error(error);
+    res.send({ status: 500 });
+  }
+}
+
+const RFIDList = async (req, res) => {
+  try {
+    const cards = await findRFIDCard();
+    res.send({ status: 200, cards });
+  } catch (error) {
+    console.error(error);
+    res.send({ status: 500 });
+  }
+}
+
 module.exports = {
   login,
   teamList,
-  team
+  team,
+  registerRFID,
+  RFIDList
 }
