@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>報名通知信</title>
+</head>
+
+<body>
+  "《本信件為系統自動發信，請勿回信》<br /><br />
+  &lt;LOST 3&gt; 參與者您好，<br />
+  首先恭喜您成功解開報名前置謎題，當看到這封信件時不代表完成報名手續，以下幾點規則敬請您遵守：<br />
+  <ol>
+    <li>團隊中成員必須為國立暨南國際大學之學生或教職員工，並由本人親自參與。</li>
+    <li>活動中禁止以任何方式與非同一團隊之成員傳遞、交流及分享相關謎題、道具與線索。</li>
+    <li>活動期間如有標記「獲得道具」則團隊可領取該物品，每組乙份，請勿過量領取。</li>
+    <li>本活動所有系統皆不需使用資安相關攻擊手法。</li>
+  </ol>其餘未詳盡之部分及活動獎勵以 <a href="<%- basicUrl %>">活動首頁</a>
+  公告為主<br /><br />
+  違反上述條例主辦單位有權撤銷該團隊之參與，若對活動產生無法挽回之後果則主辦方將追償其損失，且主辦單位保有隨時修改及終止本活動之權利，如有任何變更內容或詳細注意事項將公布於粉絲團及暨大大本營，恕不另行個別通知。<br /><br />
+  同意上述規則後，可以透過
+  <a href="<%- basicUrl %>/verify-email?email=<%- email %>&hash=<%- emailHash %>">此連結</a> 來驗證您的信箱，當三位參與者都已完成驗證將於活動開始日
+  (11/30) 收到起始信件，您可以透過 <a href="<%- basicUrl %>/player-status">查詢系統</a>
+  查詢隊伍的信箱驗證狀態，如有問題請聯絡主辦單位 <a href='https://www.facebook.com/ncnu.occultscience'>神科研粉絲團</a><br /><br />
+  您的隊伍編號：<%- teamCode %> (共 4 碼)<br /><br />
+  LOST 團隊敬上
+</body>
+
+</html>

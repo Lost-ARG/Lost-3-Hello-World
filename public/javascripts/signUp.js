@@ -119,11 +119,10 @@ const submitForm = () => {
       let html;
       if(result['status'] === 200) {
         form.reset()
-        html = '報名成功'
       } else {
         html = '報名失敗<br>';
-        html += result['message']
       }
+      html += result['message']
       document.getElementById("modal-body").innerHTML = html;
       document.getElementById("modal-body").classList.remove('text-danger')
       document.getElementById("modal-body").classList.add('text-center')

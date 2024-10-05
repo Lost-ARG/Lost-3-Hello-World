@@ -1,7 +1,11 @@
 const dayjs = require('dayjs');
 require('dotenv').config();
+const crypto = require('crypto');
+const salt = process.env.HASH_SALT;
+const basicUrl = process.env.BASIC_URL;
 
 const { countTeam, findTeam, creatTeam } = require('../service/database/teamService');
+const { sendTeamMail } = require('../service/mailService');
 
 
 const isSignUpTime = (now) => {
@@ -78,7 +82,6 @@ const verifyData = async (data) => {
             if (subKey === "name") {
               // 檢查隊伍名稱是否重複 {status: 400, message: '隊伍名稱重複'}
               const duplicate = await findTeam({ name: val });
-              
               if (!(duplicate.length === 0)) {
                 invalid.push("隊伍名稱重複，請重新選擇");
               }
@@ -144,9 +147,24 @@ const signUp = async (req, res) => {
       member_3: formData["member_3"],
     }
     teamData["game_progress"] = {}
-    await creatTeam(teamData);
-    // 發送驗證信箱 Email() ? {'message':'報名完成，請所有成員至 email 信箱收取信件'} : {'error':'系統錯誤，請聯絡主辦單位 MOLi 粉絲團 (無法寄送驗證信件)'}
-    res.send({ status: 200 });
+    const team = await creatTeam(teamData);
+    // 發送驗證信箱 Email
+    const teamEmails = Object.values(team["members"]).map(member => member.email);
+    const mailTemplateData = teamEmails.map(email => ({
+      teamCode: team["code"],
+      emailHash: crypto.createHmac('sha256', salt).update(email).digest('hex'),
+      email,
+      basicUrl
+    }));
+
+    sendTeamMail(teamEmails, "Lost 3 活動報名驗證信", "signUp", mailTemplateData);
+    res.send({ status: 200,
+      message: `
+        報名完成，請所有成員至 email 信箱收取信件<br>
+        若未收到信件請聯絡主辦粉專<br>
+        <a href="https://www.facebook.com/ncnu.occultscience">暨大神秘科學研究社</a>
+        `
+      });
 
   } catch (error) {
     // 其他錯誤
