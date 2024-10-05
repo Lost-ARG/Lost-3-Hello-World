@@ -18,6 +18,10 @@ router.get('/signUp', function(req, res, next) {
   res.render('signUp', { title: title });
 });
 
+router.get('/verify-email', function(req, res, next) {
+  res.render('verifyEmail', { title: title });
+});
+
 router.get('/helloworld', function(req, res, next) {
   res.render('helloworld', { title: title });
 });

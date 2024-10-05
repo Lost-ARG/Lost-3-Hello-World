@@ -4,7 +4,7 @@ const crypto = require('crypto');
 const salt = process.env.HASH_SALT;
 const basicUrl = process.env.BASIC_URL;
 
-const { countTeam, findTeam, creatTeam } = require('../service/database/teamService');
+const { countTeam, findTeam, creatTeam, updateTeamEmailVerify } = require('../service/database/teamService');
 const { sendTeamMail } = require('../service/mailService');
 
 
@@ -173,6 +173,28 @@ const signUp = async (req, res) => {
   }
 }
 
+const verifyEmail = async (req, res) => {
+  try {
+    const { email, emailHash } = req.params;
+    console.log(email, emailHash);
+    if (!(crypto.createHmac('sha256', salt).update(email).digest('hex') === emailHash)) {
+      res.send({ status: 400, message: "Email 驗證失敗" });
+      return;
+    }
+    // update db
+    const team = await updateTeamEmailVerify(email)
+    if(!team) {
+      res.send({ status: 400, message: "無效的 Email" });
+      return;
+    }
+    res.send({ status: 200, message: "Email 驗證成功，將重新導向至活動首頁", redirectUrl: "/" });
+  } catch (error) {
+    console.error(error);
+    res.send({ status: 500 })
+  }
+}
+
 module.exports = {
-  signUp
+  signUp,
+  verifyEmail
 }
