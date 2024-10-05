@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <%= title %>
+  </title>
+  <%- include('../models/bs_css.ejs') %>
+    <link rel="stylesheet" href="/stylesheets/majority/board.css">
+</head>
+
+<body>
+  <div class="container p-5 text-center">
+    <h1>Vote for your Future</h1>
+    <div class="row mt-5 mb-5">
+      <div class="col-lg-8 m-auto">
+        <div class="row">
+          <div class="col-lg-3">
+            <h2>議案:</h2>
+          </div>
+          <div class="col-lg-9">
+            <h2>前往神秘黑暗空間，改變注定毀滅的未來</h2>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-lg-3">
+            <h2>提案人:</h2>
+          </div>
+          <div class="col-lg-9">
+            <h2>方璇</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div id="qrcode" class="col-4 m-auto text-center d-flex justify-content-center">
+      </div>
+    </div>
+    <div class="row mt-5">
+      <h1>Vote Result</h1>
+    </div>
+    <div id="vote-result" class="row mt-5">
+
+    </div>
+
+  </div>
+
+  <%- include('../models/bs_js.ejs') %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+      integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"
+      integrity="sha384-2huaZvOR9iDzHqslqwpR87isEmrfxqyWOF7hr7BY6KG0+hVKLoEXMPUJw3ynWuhO"
+      crossorigin="anonymous"></script>
+    <script src="/javascripts/majority/board.js"></script>
+</body>
+
+</html>

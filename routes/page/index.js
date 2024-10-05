@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const backstageRouter = require('./backstage')
+const backstageRouter = require('./backstage');
+const { verify } = require('../../service/jwtService');
 
 require('dotenv').config()
 
@@ -33,6 +34,21 @@ router.get('/pascal', function(req, res, next) {
 
 router.get('/story', function(req, res, next) {
   res.render('story', { title: title });
+});
+
+router.get('/majority/board', function(req, res, next) {
+  res.render('majority/board', { title: title });
+});
+
+router.get('/majority/player', async function(req, res, next) {
+  const {token} = req.query;
+  const tokenVerifyResult = await verify(token);
+  
+  if(!tokenVerifyResult) {
+    next();
+    return
+  }
+  res.render('majority/player', { title: title });
 });
 
 module.exports = router;

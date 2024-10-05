@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <%- include('../models/bs_css.ejs') %>
+  <link rel="stylesheet" href="/stylesheets/majority/player.css">
+</head>
+
+<body>
+  <!-- Modal -->
+  <div class="modal fade" id="player-input" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <label for="player-name">請輸入你的名字</label>
+          <input class="form-control" id="player-name" type="text">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="readInput()">Enter</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container p-5 text-center">
+    <div class="row">
+      <h1>做出你的選擇</h1>
+    </div>
+    <div class="row mt-5">
+      <div class="col-6"><button class="choice btn btn-lg btn-success w-100 h-100" value="O"
+          onclick="vote(this.value)">O</button></div>
+      <div class="col-6"><button class="choice btn btn-lg btn-danger w-100 h-100" value="X"
+          onclick="vote(this.value)">X</button></div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-12"><button id="reset" class="btn btn-lg btn-secondary w-100 h-100"
+          onclick="reset()" disabled="true">RESET</button></div>
+    </div>
+  </div>
+
+  <%- include('../models/bs_js.ejs') %>
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"
+      integrity="sha384-2huaZvOR9iDzHqslqwpR87isEmrfxqyWOF7hr7BY6KG0+hVKLoEXMPUJw3ynWuhO"
+      crossorigin="anonymous"></script>
+    <script src="/javascripts/majority/player.js"></script>
+</body>
+
+</html>
