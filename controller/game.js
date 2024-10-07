@@ -1,5 +1,6 @@
 const { findRFID } = require("../service/database/RFIDService");
 const { generate } = require("../service/jwtService");
+const socket = require("../socket");
 
 const helloworld = (req, res) => {
   const formData = req.body;
@@ -30,7 +31,7 @@ const getVoteUrl = (req, res) => {
 
 const swipeRFID = async (req, res) => {
   try {
-    const uid = req.body["uid"];
+    const { uid } = req.body;
     const rfids = await findRFID({ uid });
     if (rfids.length === 0) {
       res.send({ status: 404 })
@@ -45,10 +46,38 @@ const swipeRFID = async (req, res) => {
   }
 }
 
+const detectRFID = async (req, res) => {
+  try {
+    const { uid, tagPresent } = req.body;
+
+    if (!tagPresent) {
+      socket.io.emit("readChip/absent", { url: "/readChip/idle" });
+    } else {
+      const rfids = await findRFID({ uid });
+      if (rfids.length === 0) {
+        res.send({ status: 404 })
+        return;
+      }
+
+      if (rfids[0].type !== "tag") {
+        res.send({ status: 400 })
+        return;
+      }
+      socket.io.emit("readChip/present", { url: "/readChip/data" });
+    }
+
+    res.send({ status: 200 })
+  } catch (error) {
+    console.error(error);
+    res.send({ status: 500 })
+  }
+}
+
 
 module.exports = {
   helloworld,
   pascal,
   getVoteUrl,
-  swipeRFID
+  swipeRFID,
+  detectRFID
 }

@@ -51,4 +51,13 @@ router.get('/majority/player', async function(req, res, next) {
   res.render('majority/player', { title: title });
 });
 
+router.get('/readChip/idle', function(req, res, next) {
+  res.render('readChip/idle', { title: title });
+});
+
+router.get('/readChip/data', function(req, res, next) {
+  res.render('readChip/data', { title: title });
+});
+
+
 module.exports = router;
