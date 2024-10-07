@@ -7,7 +7,7 @@ dayjs.extend(timezone);
 
 const { findAdmin } = require('../service/database/adminService');
 const { findTeam } = require('../service/database/teamService');
-const { creatRFIDCard, findRFIDCard } = require('../service/database/RFIDCardService');
+const { creatRFID, findRFID } = require('../service/database/RFIDService');
 
 
 const login = async (req, res) => {
@@ -61,11 +61,8 @@ const team = async (req, res) => {
 
 const registerRFID = async (req, res) => {
   try {
-    const formData = req.body;
-    await creatRFIDCard({
-      card_id: formData["card_id"],
-      type: formData["type"]
-    })
+    const { uid, type } = req.body;
+    await creatRFID({ uid, type })
     res.send({ status: 200 })
   } catch (error) {
     console.error(error);
@@ -75,7 +72,7 @@ const registerRFID = async (req, res) => {
 
 const RFIDList = async (req, res) => {
   try {
-    const cards = await findRFIDCard();
+    const cards = await findRFID();
     res.send({ status: 200, cards });
   } catch (error) {
     console.error(error);

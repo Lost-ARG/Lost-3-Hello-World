@@ -4,7 +4,7 @@ const sendRequest = () => {
   myHeaders.append("Content-Type", "application/json");
 
   const raw = JSON.stringify({
-    "card_id": document.querySelector("[name='card_id']").value,
+    "uid": document.querySelector("[name='uid']").value,
     "type": document.querySelector("[name='type']").value
   });
 
@@ -19,7 +19,7 @@ const sendRequest = () => {
     .then((response) => response.text())
     .then((result) => {
       console.log(result)
-      document.querySelector("[name='card_id']").value = '';
+      document.querySelector("[name='uid']").value = '';
       document.querySelector("[name='type']").selectedIndex = 0;
     })
     .catch((error) => console.error(error));

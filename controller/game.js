@@ -1,4 +1,4 @@
-const { findRFIDCard } = require("../service/database/RFIDCardService");
+const { findRFID } = require("../service/database/RFIDService");
 const { generate } = require("../service/jwtService");
 
 const helloworld = (req, res) => {
@@ -30,9 +30,9 @@ const getVoteUrl = (req, res) => {
 
 const swipeRFID = async (req, res) => {
   try {
-    const card_id = req.body["uid"];
-    const card = await findRFIDCard({ card_id });
-    if (card.length === 0) {
+    const uid = req.body["uid"];
+    const rfids = await findRFID({ uid });
+    if (rfids.length === 0) {
       res.send({ status: 404 })
       return;
     }

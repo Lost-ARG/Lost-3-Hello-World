@@ -13,7 +13,7 @@ fetch("/api/backstage/rfid-list", requestOptions)
       html += `
         <tr>
           <th scope="row">${i}</th>
-          <td>${cards[i]["card_id"]}</td>
+          <td>${cards[i]["uid"]}</td>
           <td>${cards[i]["type"]}</td>
         </tr>`
     }
