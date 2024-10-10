@@ -63,5 +63,9 @@ router.get('/hex', function(req, res, next) {
   res.render('hex', { title: title });
 });
 
+router.get('/goto', function(req, res, next) {
+  res.render('goto', { title: title });
+});
+
 
 module.exports = router;
