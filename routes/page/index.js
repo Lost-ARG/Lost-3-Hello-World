@@ -59,5 +59,9 @@ router.get('/readChip/data', function(req, res, next) {
   res.render('readChip/data', { title: title });
 });
 
+router.get('/hex', function(req, res, next) {
+  res.render('hex', { title: title });
+});
+
 
 module.exports = router;

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <%= title %>
+  </title>
+  <%- include('./models/bs_css.ejs') %>
+    <link rel="stylesheet" href="/stylesheets/hex.css">
+</head>
+
+<body>
+  <!-- Modal -->
+  <div class="modal fade" id="result" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center text-dark">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid text-center">
+    <div class="row mt-5">
+      <div class="col-lg-8 col-12 m-auto">
+        <img src="/images/hex.png" alt="">
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-lg-8 col-12 m-auto">
+        <h3>(6, 5) (0, 3) (7, 9) (9, 0) (1, 7) (6, 7) (7, 8) (4, 2) (2, 4)</h3>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-lg-8 col-12 m-auto text-center">
+        <div class="input-group mb-3 w-50 m-auto">
+          <input id="input" type="text" class="form-control" placeholder="WHERE?">
+          <button class="btn btn-outline-secondary" type="button" id="submit" onclick="submitAns()">Submit</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <%- include('./models/bs_js.ejs') %>
+  <script src="/javascripts/hex.js"></script>
+</body>
+
+</html>

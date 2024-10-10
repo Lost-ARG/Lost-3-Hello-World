@@ -73,11 +73,22 @@ const detectRFID = async (req, res) => {
   }
 }
 
+const hex = (req, res) => {
+  const formData = req.body;
+  const ans = "學活403";
+  if (formData["answer"] === ans) {
+    res.send({ status: 200, storyCode: "SCDH4" });
+    return;
+  }
+  res.send({ status: 400 });
+}
+
 
 module.exports = {
   helloworld,
   pascal,
   getVoteUrl,
   swipeRFID,
-  detectRFID
+  detectRFID,
+  hex
 }
