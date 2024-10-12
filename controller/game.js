@@ -83,6 +83,30 @@ const hex = (req, res) => {
   res.send({ status: 400 });
 }
 
+const snake = (req, res) => {
+  const formData = req.body;
+  let touchedWall;
+  if (formData["tailLen"] !== 7) {
+    res.send({ status: 400 });
+    return;
+  }
+  if (formData["headY"] < 0) {
+    touchedWall = "Top";
+  } else if (formData["headY"] >= 20) {
+    touchedWall = "Bottom";
+  }
+  if (formData["headX"] < 0) {
+    touchedWall = "Left";
+  } else if (formData["headX"] >= 20) {
+    touchedWall = "Right";
+  }
+  if (!touchedWall) {
+    res.send({ status: 400 });
+    return;
+  }
+  res.send({ status: 200, touchedWall, storyCode: "G4PDC" });
+}
+
 
 module.exports = {
   helloworld,
@@ -90,5 +114,6 @@ module.exports = {
   getVoteUrl,
   swipeRFID,
   detectRFID,
-  hex
+  hex,
+  snake
 }

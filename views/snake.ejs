@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <%- include('models/bs_css.ejs') %>
+  <link rel="stylesheet" href="/stylesheets/snake.css">
+</head>
+<body class="bg-dark text-light">
+  <!-- Modal -->
+  <div class="modal fade" id="result" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center text-dark">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container pt-5 text-center">
+    <canvas id="game" width="360" height="360"></canvas>
+    <div class="controls">
+      <button class="control btn btn-primary" id="upBtn" value="↑">↑</button><br>
+      <button class="control btn btn-primary" id="leftBtn" value="←">←</button>
+      <button class="control btn btn-primary" id="downBtn" value="↓">↓</button>
+      <button class="control btn btn-primary" id="rightBtn" value="→">→</button>
+    </div>
+    <!-- <div class="row"> -->
+      <button class="btn btn-danger reset" value="reset">RESET</button>
+    <!-- </div> -->
+
+  </div>
+
+  <%- include('models/bs_js.ejs') %>
+  <script src="/javascripts/snake.js"></script>
+</body>
+</html>

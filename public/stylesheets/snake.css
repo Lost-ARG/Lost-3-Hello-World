@@ -1,0 +1,50 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+}
+
+canvas {
+    border: 2px solid rgb(168, 168, 168);
+}
+
+.controls {
+    margin-top: 20px;
+}
+
+button {
+    width: 60px;
+    height: 60px;
+    margin: 5px;
+    font-size: 18px;
+}
+
+button.reset {
+    width: 210px;
+    height: 60px;
+    margin: 5px;
+    font-size: 18px;
+}
+
+@keyframes fadeToBlackAndDisappear {
+    0% {
+        background-color: transparent;
+        opacity: 1;
+    }
+
+    50% {
+        background-color: black;
+        opacity: 1;
+    }
+
+    100% {
+        background-color: black;
+        opacity: 0;
+    }
+}
+
+.fade-out {
+    animation: fadeToBlackAndDisappear 3s forwards;
+}

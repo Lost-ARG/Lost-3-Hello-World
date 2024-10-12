@@ -67,5 +67,9 @@ router.get('/goto', function(req, res, next) {
   res.render('goto', { title: title });
 });
 
+router.get('/snake', function(req, res, next) {
+  res.render('snake', { title: title });
+});
+
 
 module.exports = router;

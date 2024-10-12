@@ -8,6 +8,7 @@ router.get('/majority/player-url', Controller.getVoteUrl)
 router.post('/majority/swipe-rfid', Controller.swipeRFID)
 router.post('/readChip/detect-rfid', Controller.detectRFID)
 router.post('/hex', Controller.hex)
+router.post('/snake', Controller.snake)
 
 
 module.exports = router;
