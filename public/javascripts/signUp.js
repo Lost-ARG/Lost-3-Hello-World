@@ -1,5 +1,7 @@
 const main = document.getElementById('main');
 const signForm = document.getElementById('signUp');
+let powerSwitched = false;
+
 // Get the modal element 
 const myModal = new bootstrap.Modal(document.getElementById('signUp-result'));
 
@@ -144,3 +146,30 @@ const init = () => {
 
 init()
 
+const powerSwitch = () => {
+  const powerBtn = document.querySelector(".power-btn");
+  const fieldset = document.querySelector("#fieldset");
+  powerBtn.classList.toggle("not-clicked");
+  if(!powerSwitched) {
+    main.style.setProperty("--main-background", "linear-gradient(#000000, #FF44FF, #30ffff)");
+    main.style.setProperty("--main-animation", "animate 5s linear infinite");
+    signForm.style.boxShadow = "-45px -45px 35px #30ffff, 45px 45px 35px #FF44FF";
+    signForm.style.animation = "shadow 20s linear infinite";
+    const disabledElements = document.querySelectorAll(".disabled");
+    disabledElements.forEach(element => {
+      element.classList.replace("disabled", "powered")
+    })
+    fieldset.disabled = false;
+  } else {
+    main.style.setProperty("--main-background", "none")
+    main.style.setProperty("--main-animation", "none")
+    signForm.style.boxShadow = "none";
+    signForm.style.animation = "none";
+    const poweredElements = document.querySelectorAll(".powered");
+    poweredElements.forEach(element => {
+      element.classList.replace("powered", "disabled")
+    })
+    fieldset.disabled = true;
+  }
+  powerSwitched = !powerSwitched;
+}

@@ -29,68 +29,86 @@
   <main id="main">
     <div id="signUp" class="signUp row">
       <div class="content">
-        <h2 class="w-100 text-center mb-4">Sign Up</h2>
+        <h2 class="w-100 text-center mb-4 disabled">Sign Up
+          <svg class="power-btn not-clicked" onclick="powerSwitch()" width="20" height="20" viewBox="0 0 100 100"
+            xmlns="http://www.w3.org/2000/svg">
+            <!-- Outer Circle -->
+            <circle cx="50" cy="50" r="40" stroke-width="5" fill="none" />
+
+            <!-- Power Symbol (Line) -->
+            <line x1="50" y1="20" x2="50" y2="45" stroke-width="5" stroke-linecap="round" />
+
+            <!-- Power Symbol (Arc) -->
+            <circle cx="50" cy="50" r="20" stroke-width="5" fill="none" />
+
+          </svg>
+        </h2>
         <ul class="nav justify-content-center nav-tabs">
           <li class="nav-item">
-            <button class="nav-link active" aria-current="page" data-bs-toggle="tab" data-bs-target="#team">隊伍</button>
+            <button class="disabled nav-link active" aria-current="page" data-bs-toggle="tab" data-bs-target="#team">隊伍</button>
           </li>
           <li class="nav-item">
-            <button class="nav-link" aria-current="page" data-bs-toggle="tab" data-bs-target="#member1">主要聯絡人</button>
+            <button class="disabled nav-link" aria-current="page" data-bs-toggle="tab" data-bs-target="#member1">主要聯絡人</button>
           </li>
           <li class="nav-item">
-            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#member2">成員 2</button>
+            <button class="disabled nav-link" data-bs-toggle="tab" data-bs-target="#member2">成員 2</button>
           </li>
           <li class="nav-item">
-            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#member3">成員 3</button>
+            <button class="disabled nav-link" data-bs-toggle="tab" data-bs-target="#member3">成員 3</button>
           </li>
         </ul>
         <!-- input -->
         <form id="form" class="form needs-validation" novalidate>
-          <div class="tab-content m-auto">
-            <div id="team" class="tab-pane fade show active" role="tabpanel">
-              <div class="mt-3">
-                <input name="team_name" class="form-control bg-dark text-light" placeholder="隊伍名稱 (至少 2 位元)" required>
+
+          <fieldset id="fieldset" disabled="true">
+            <div class="tab-content m-auto">
+              <div id="team" class="tab-pane fade show active" role="tabpanel">
+                <div class="mt-3">
+                  <input name="team_name" class="disabled form-control bg-dark text-light" placeholder="隊伍名稱 (至少 2 位元)" required>
+                </div>
+                <div class="mt-3">
+                  <input name="team_password" type="password" class="disabled form-control bg-dark text-light"
+                    placeholder="隊伍密碼 (最少 4 位元且一碼為英文)" required>
+                </div>
               </div>
-              <div class="mt-3">
-                <input name="team_password" type="password" class="form-control bg-dark text-light" placeholder="隊伍密碼 (最少 4 位元且一碼為英文)" required>
+              <div id="member1" class="tab-pane fade" role="tabpanel">
+                <div class="mt-3">
+                  <input name="member_1_name" class="disabled form-control bg-dark text-light" placeholder="姓名" required>
+                </div>
+                <div class="mt-3">
+                  <input name="member_1_id" class="disabled form-control bg-dark text-light" placeholder="學號" required>
+                </div>
+                <div class="mt-3 mb-3">
+                  <input name="member_1_email" class="disabled form-control bg-dark text-light" placeholder="Email" required>
+                </div>
+              </div>
+              <div id="member2" class="tab-pane fade" role="tabpanel">
+                <div class="mt-3">
+                  <input name="member_2_name" class="disabled form-control bg-dark text-light" placeholder="姓名" required>
+                </div>
+                <div class="mt-3">
+                  <input name="member_2_id" class="disabled form-control bg-dark text-light" placeholder="學號" required>
+                </div>
+                <div class="mt-3">
+                  <input name="member_2_email" class="disabled form-control bg-dark text-light" placeholder="Email" required>
+                </div>
+              </div>
+              <div id="member3" class="tab-pane fade" role="tabpanel">
+                <div class="mt-3">
+                  <input name="member_3_name" class="disabled form-control bg-dark text-light" placeholder="姓名" required>
+                </div>
+                <div class="mt-3">
+                  <input name="member_3_id" class="disabled form-control bg-dark text-light" placeholder="學號" required>
+                </div>
+                <div class="mt-3">
+                  <input name="member_3_email" class="disabled form-control bg-dark text-light" placeholder="Email" required>
+                </div>
+                <hr class="border">
+                <button class="disabled" id="submit" type="button">Submit</button>
               </div>
             </div>
-            <div id="member1" class="tab-pane fade" role="tabpanel">
-              <div class="mt-3">
-                <input name="member_1_name" class="form-control bg-dark text-light" placeholder="姓名" required>
-              </div>
-              <div class="mt-3">
-                <input name="member_1_id" class="form-control bg-dark text-light" placeholder="學號" required>
-              </div>
-              <div class="mt-3 mb-3">
-                <input name="member_1_email" class="form-control bg-dark text-light" placeholder="Email" required>
-              </div>
-            </div>
-            <div id="member2" class="tab-pane fade" role="tabpanel">
-              <div class="mt-3">
-                <input name="member_2_name" class="form-control bg-dark text-light" placeholder="姓名" required>
-              </div>
-              <div class="mt-3">
-                <input name="member_2_id" class="form-control bg-dark text-light" placeholder="學號" required>
-              </div>
-              <div class="mt-3">
-                <input name="member_2_email" class="form-control bg-dark text-light" placeholder="Email" required>
-              </div>
-            </div>
-            <div id="member3" class="tab-pane fade" role="tabpanel">
-              <div class="mt-3">
-                <input name="member_3_name" class="form-control bg-dark text-light" placeholder="姓名" required>
-              </div>
-              <div class="mt-3">
-                <input name="member_3_id" class="form-control bg-dark text-light" placeholder="學號" required>
-              </div>
-              <div class="mt-3">
-                <input name="member_3_email" class="form-control bg-dark text-light" placeholder="Email" required>
-              </div>
-              <hr class="border">
-              <button id="submit" type="button">Submit</button>
-            </div>
-          </div>
+          </fieldset>
+
         </form>
       </div>
     </div>
