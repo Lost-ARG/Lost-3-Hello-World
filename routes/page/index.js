@@ -29,7 +29,7 @@ router.get('/helloworld', function(req, res, next) {
 
 // Level 1
 router.get('/morning', function(req, res, next) {
-  res.render('morning', { title: title, soundUrl: process.env.LEVEL_1_SOUND_URL });
+  res.render('morning', { title: title, sourceUrl: process.env.LEVEL_1_SOURCE_URL });
 });
 
 // Level 2
