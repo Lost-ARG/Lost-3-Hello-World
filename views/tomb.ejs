@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <%= title %>
+  </title>
+  <%- include('./models/bs_css.ejs') %>
+    <link rel="stylesheet" href="/stylesheets/tomb.css">
+</head>
+
+<body>
+  <!-- Modal -->
+  <div class="modal fade" id="result" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center text-dark">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid text-center">
+    <div class="row mt-5">
+      <div class="col-lg-8 col-12 m-auto">
+        <svg width="200" height="300" xmlns="http://www.w3.org/2000/svg">
+          <!-- Tombstone Rounded Top and Base -->
+          <path d="M50 150 Q100 80 150 150 V270 H50 V150 Z" fill="#A9A9A9" stroke="#555" stroke-width="5" />
+
+          <!-- RIP Text -->
+          <text x="100" y="180" font-family="serif" font-size="30" text-anchor="middle" fill="#333">RIP</text>
+
+          <!-- Cross Icon -->
+          <rect x="90" y="195" width="20" height="70" fill="#333" />
+          <rect x="75" y="210" width="50" height="20" fill="#333" />
+        </svg>
+      </div>
+      <div id="poem" class="col-lg-8 col-12 m-auto">
+        片片花瓣<br>
+        點點心意<br>
+
+        獻給 □□□□ --李俊逸
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-lg-8 col-12 m-auto text-center">
+        <div class="input-group mb-3 w-50 m-auto">
+          <input id="input" type="text" class="form-control" placeholder="">
+          <button class="btn btn-outline-secondary" type="button" id="submit" onclick="submitAns()">Submit</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <%- include('./models/bs_js.ejs') %>
+    <script src="/javascripts/tomb.js"></script>
+</body>
+
+</html>

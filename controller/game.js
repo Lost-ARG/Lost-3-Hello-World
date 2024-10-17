@@ -107,6 +107,16 @@ const snake = (req, res) => {
   res.send({ status: 200, touchedWall, storyCode: "G4PDC" });
 }
 
+const tomb = (req, res) => {
+  const formData = req.body;
+  const ans = "此生摯愛";
+  if (formData["answer"] === ans) {
+    res.send({ status: 200, storyCode: "XK58F" });
+    return;
+  }
+  res.send({ status: 400 });
+}
+
 
 module.exports = {
   helloworld,
@@ -115,5 +125,6 @@ module.exports = {
   swipeRFID,
   detectRFID,
   hex,
-  snake
+  snake,
+  tomb
 }

@@ -71,5 +71,9 @@ router.get('/snake', function(req, res, next) {
   res.render('snake', { title: title });
 });
 
+router.get('/tomb', function(req, res, next) {
+  res.render('tomb', { title: title });
+});
+
 
 module.exports = router;
