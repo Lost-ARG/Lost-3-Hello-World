@@ -12,6 +12,16 @@ const helloworld = (req, res) => {
   res.send({ message: "wrong answer" })
 }
 
+const morning = (req, res) => {
+  const formData = req.body;
+  const ans = "helloworld";
+  if (formData["answer"].replace(/\s/g, '').toLowerCase() === ans) {
+    res.send({ status: 200, storyCode: process.env.LEVEL_1_STORY_CODE });
+    return;
+  }
+  res.send({ status: 400 });
+}
+
 const pascal = (req, res) => {
   const formData = req.body;
   const ans = "↑↑↓↓↑↑↓↑↓↓↑";
@@ -120,6 +130,7 @@ const tomb = (req, res) => {
 
 module.exports = {
   helloworld,
+  morning,
   pascal,
   getVoteUrl,
   swipeRFID,

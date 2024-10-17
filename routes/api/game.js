@@ -3,6 +3,7 @@ const router = express.Router();
 const Controller = require('../../controller/game');
 
 router.post('/helloworld', Controller.helloworld)
+router.post('/morning', Controller.morning)
 router.post('/pascal', Controller.pascal)
 router.get('/majority/player-url', Controller.getVoteUrl)
 router.post('/majority/swipe-rfid', Controller.swipeRFID)
