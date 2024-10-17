@@ -26,7 +26,7 @@ const pascal = (req, res) => {
   const formData = req.body;
   const ans = "↑↑↓↓↑↑↓↑↓↓↑";
   if (formData["answer"] === ans) {
-    res.send({ status: 200, storyCode: "SXHOO" });
+    res.send({ status: 200, storyCode: process.env.LEVEL_2_STORY_CODE });
     return;
   }
   res.send({ status: 400 });
@@ -87,7 +87,7 @@ const hex = (req, res) => {
   const formData = req.body;
   const ans = "學活403";
   if (formData["answer"] === ans) {
-    res.send({ status: 200, storyCode: "SCDH4" });
+    res.send({ status: 200, storyCode: process.env.LEVEL_4_STORY_CODE });
     return;
   }
   res.send({ status: 400 });
@@ -114,14 +114,14 @@ const snake = (req, res) => {
     res.send({ status: 400 });
     return;
   }
-  res.send({ status: 200, touchedWall, storyCode: "G4PDC" });
+  res.send({ status: 200, touchedWall, storyCode: process.env.LEVEL_14_STORY_CODE });
 }
 
 const tomb = (req, res) => {
   const formData = req.body;
   const ans = "此生摯愛";
   if (formData["answer"] === ans) {
-    res.send({ status: 200, storyCode: "XK58F" });
+    res.send({ status: 200, storyCode: process.env.LEVEL_6_STORY_CODE });
     return;
   }
   res.send({ status: 400 });
