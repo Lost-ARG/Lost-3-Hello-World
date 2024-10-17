@@ -80,5 +80,10 @@ router.get('/tomb', function(req, res, next) {
   res.render('tomb', { title: title });
 });
 
+// Level 7
+router.get('/loop', function(req, res, next) {
+  res.render('loop', { title: title, sourceUrl: process.env.LEVEL_7_SOURCE_URL });
+});
+
 
 module.exports = router;
