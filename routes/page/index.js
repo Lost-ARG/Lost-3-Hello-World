@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const backstageRouter = require('./backstage');
+const playerRouter = require('./player');
 const { verify } = require('../../service/jwtService');
 
 require('dotenv').config()
@@ -9,6 +10,7 @@ require('dotenv').config()
 const title = process.env.TITLE;
 
 router.use('/backstage', backstageRouter);
+router.use('/player', playerRouter);
 
 // General
 router.get('/', function(req, res, next) {

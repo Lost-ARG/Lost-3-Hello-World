@@ -6,6 +6,7 @@ const teamRouter = require('./team');
 const storyRouter = require('./story');
 const gameRouter = require('./game');
 const backstageRouter = require('./backstage');
+const playerRouter = require('./player');
 const signUpRouter = require('./signUp');
 
 
@@ -14,6 +15,7 @@ router.use('/team', teamRouter);
 router.use('/story', storyRouter);
 router.use('/game', gameRouter);
 router.use('/backstage', backstageRouter);
+router.use('/player', playerRouter);
 router.use('/signUp', signUpRouter)
 
 
