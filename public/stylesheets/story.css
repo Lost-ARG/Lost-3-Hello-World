@@ -31,6 +31,8 @@ body {
     top: 0;
     left: 0;
     background-color: #c0906b;
+    background-image: url('/images/note_cover.JPG');
+    background-size: 400px;
     border-radius: 5px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
