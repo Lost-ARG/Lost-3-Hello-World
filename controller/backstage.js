@@ -27,10 +27,20 @@ const login = async (req, res) => {
       res.redirect('/backstage/login');
       return;
     }
+    req.session.admin = formData["username"];
     res.redirect('/backstage')
   } catch (error) {
     res.redirect('/backstage/login');
   }
+}
+
+const logout = (req, res) => {
+  req.session.destroy((err) => {
+    if(err) {
+      console.error(err);
+    }
+  })
+  res.redirect('/backstage/login');
 }
 
 const teamList = async (req, res) => {
@@ -82,6 +92,7 @@ const RFIDList = async (req, res) => {
 
 module.exports = {
   login,
+  logout,
   teamList,
   team,
   registerRFID,
