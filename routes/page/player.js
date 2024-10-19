@@ -11,10 +11,10 @@ router.get('/', function(req, res, next) {
     res.redirect('/player/login');
     return;
   }
-  // if(teamCode !== req.session.teamCode) {
-  //   res.redirect('/player/login');
-  //   return;
-  // }
+  if(teamCode !== req.session.teamCode) {
+    res.redirect('/player/login');
+    return;
+  }
   res.render('player/home', { title: title });
 });
 

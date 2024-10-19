@@ -25,6 +25,7 @@ const login = async (req, res) => {
       res.redirect('/player/login');
       return;
     }
+    req.session.team = formData['teamcode']
     res.redirect(`/player?team=${formData["teamcode"]}`)
   } catch (error) {
     res.redirect('/player/login');
@@ -47,8 +48,17 @@ const team = async (req, res) => {
   }
 }
 
+const logout = (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.error(err);
+    }
+  })
+  res.redirect("/player/login")
+}
 
 module.exports = {
   login,
   team,
+  logout,
 }

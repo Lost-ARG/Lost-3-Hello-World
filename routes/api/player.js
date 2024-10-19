@@ -5,6 +5,7 @@ require('dotenv').config()
 
 router.post('/login', Controller.login);
 router.get('/team', Controller.team);
+router.get('/logout', Controller.logout);
 
 
 module.exports = router;
