@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const multer = require('multer');
+const session = require('express-session');
+const sessionConfig = require('./config/session');
 const connectDB = require('./database');
 
 var indexRouter = require('./routes/page');
@@ -11,6 +13,7 @@ var apiRouter = require('./routes/api');
 
 var app = express();
 
+app.use(session(sessionConfig));
 connectDB();
 
 // view engine setup
