@@ -1,0 +1,49 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title><%- title %></title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/maze.css">
+  <%- include('./models/bs_css.ejs') %>
+</head>
+
+<body class="bg-black text-light">
+  <!-- Modal -->
+  <div class="modal fade" id="result" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center text-dark">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid text-center">
+    <div class="content mt-5">
+      <h1>Find the Right Path</h1>
+      <h3><span>Note</span> that if you touch the wall, you die.</h3>
+      <div class="gameArea mt-5 m-auto border d-flex flex-column align-items-center justify-content-center">
+        <h2 class="gameAreaElement"></h2>
+        <button id="start-btn" class="gameAreaElement btn btn-lg btn-outline-light m-2" onclick="start()">START</button>
+        <canvas class="gameAreaElement hide" id="mycanvas" width="600" height="600"></canvas>
+      </div>
+      <div class="controls">
+        <button class="control btn btn-primary" id="upBtn" value="↑">↑</button><br>
+        <button class="control btn btn-primary" id="leftBtn" value="←">←</button>
+        <button class="control btn btn-primary" id="downBtn" value="↓">↓</button>
+        <button class="control btn btn-primary" id="rightBtn" value="→">→</button>
+      </div>
+    </div>
+  </div>
+  <%- include('./models/bs_js.ejs') %>
+  <script src="/javascripts/maze.js"></script>
+</body>
+
+</html>

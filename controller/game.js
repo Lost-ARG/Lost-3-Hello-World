@@ -127,6 +127,24 @@ const tomb = (req, res) => {
   res.send({ status: 400 });
 }
 
+const maze = (req, res) => {
+  const formData = req.body;
+
+  if (!formData["pass"]) {
+    res.send({ status: 400 });
+    return;
+  }
+  if (!formData["noteClicked"]) {
+    res.send({ status: 400 });
+    return;
+  }
+  if (!(formData["moveCount"] >= formData["mazeSideLen"] * 2)) {
+    res.send({ status: 400 });
+    return;
+  }
+  res.send({ status: 200, storyCode: process.env.LEVEL_16_STORY_CODE });
+}
+
 
 module.exports = {
   helloworld,
@@ -137,5 +155,6 @@ module.exports = {
   detectRFID,
   hex,
   snake,
-  tomb
+  tomb,
+  maze
 }

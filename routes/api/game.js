@@ -11,6 +11,7 @@ router.post('/readChip/detect-rfid', Controller.detectRFID)
 router.post('/hex', Controller.hex)
 router.post('/snake', Controller.snake)
 router.post('/tomb', Controller.tomb);
+router.post('/maze', Controller.maze);
 
 
 module.exports = router;
