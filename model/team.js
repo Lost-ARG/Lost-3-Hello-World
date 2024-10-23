@@ -24,7 +24,8 @@ const teamSchema = new Schema({
     member_1: { type: memberSchema, default: {} },
     member_2: { type: memberSchema, default: {} },
     member_3: { type: memberSchema, default: {} }
-  }
+  },
+  paid: { type: Boolean, default: false }
 });
 
 // 使用 "pre" middleware，在保存之前生成流水號

@@ -10,9 +10,10 @@ const creatTeam = async (data) => {
   }
 }
 
-const findTeam = async (condition = {}) => {
+const findTeam = async (condition = {}, specifiedCol = {}) => {
   try {
-    const team = await Team.find(condition);
+    const team = await Team.find(condition, specifiedCol);
+
     return team;
   } catch (error) {
     throw new Error(`Find Team Failed, Error: ${error.toString()}`)
@@ -77,10 +78,32 @@ const updateTeamEmailVerify = async (email) => {
   }
 }
 
+const updateTeam = async (condition = {}, data = {}) => {
+  try {
+    const updatedTeam = await Team.findOneAndUpdate(
+      condition,
+      { $set: data },  // Using $set to only update specified fields
+      { new: true, runValidators: true }  // Return the updated doc and apply validation
+    );
+
+    // Check if a team was found and updated
+    if (!updatedTeam) {
+      throw new Error('Team not found or no fields were updated.');
+    }
+
+    return updatedTeam;  // Return the updated team document
+  } catch (error) {
+    // Detailed error handling
+    throw new Error(`Update Team Failed, Condition: ${JSON.stringify(condition)}, Data: ${JSON.stringify(data)}, Error: ${error.toString()}`);
+  }
+};
+
+
 module.exports = {
   creatTeam,
   findTeam,
   countTeam,
   updateTeamProgress,
   updateTeamEmailVerify,
+  updateTeam,
 }

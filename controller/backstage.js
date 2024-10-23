@@ -6,7 +6,7 @@ dayjs.extend(utc);
 dayjs.extend(timezone);
 
 const { findAdmin } = require('../service/database/adminService');
-const { findTeam } = require('../service/database/teamService');
+const { findTeam, updateTeam } = require('../service/database/teamService');
 const { creatRFID, findRFID } = require('../service/database/RFIDService');
 
 
@@ -36,7 +36,7 @@ const login = async (req, res) => {
 
 const logout = (req, res) => {
   req.session.destroy((err) => {
-    if(err) {
+    if (err) {
       console.error(err);
     }
   })
@@ -90,11 +90,60 @@ const RFIDList = async (req, res) => {
   }
 }
 
+const paymentSearch = async (req, res) => {
+  try {
+    const { searchKey } = req.query;
+    const dbQuery = searchKey !== undefined ? {
+      $or: [
+        { code: new RegExp(`.*${searchKey}.*`) },
+        { name: new RegExp(`.*${searchKey}.*`) }
+      ]
+    } : {}
+
+    const teams = await findTeam(
+      dbQuery,
+      { code: 1, name: 1, paid: 1, _id: 1 }
+    );
+
+    res.send({ status: 200, data: teams })
+  } catch (error) {
+    res.send({ status: 500 })
+    console.error(error);
+  }
+}
+
+const changePaidStat = async (req, res) => {
+  try {
+    const { id, paidStat } = req.body;
+    await updateTeam({ _id: id }, { paid: !paidStat });
+
+    res.send({ status: 200 })
+  } catch (error) {
+    res.send({ status: 500 });
+    console.error(error);
+  }
+}
+
+const searchTeamByPaid = async (req, res) => {
+  try {
+    const { paid } = req.query;
+
+    const teams = await findTeam({ paid: paid === "true" });
+    res.send({ status: 200, data: teams })
+  } catch (error) {
+    console.error(error);
+    res.send({ status: 500 })
+  }
+}
+
 module.exports = {
   login,
   logout,
   teamList,
   team,
   registerRFID,
-  RFIDList
+  RFIDList,
+  paymentSearch,
+  changePaidStat,
+  searchTeamByPaid,
 }
