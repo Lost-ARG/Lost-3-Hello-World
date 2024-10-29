@@ -72,6 +72,11 @@ router.get('/loop', function(req, res, next) {
   res.render('loop', { title: title, sourceUrl: process.env.LEVEL_7_SOURCE_URL });
 });
 
+// Level 8
+router.get('/weird', function(req, res, next) {
+  res.render('weird', { title: title, sourceUrl: process.env.LEVEL_8_SOURCE_URL });
+});
+
 // Level 13
 router.get('/majority/board', function(req, res, next) {
   res.render('majority/board', { title: title });

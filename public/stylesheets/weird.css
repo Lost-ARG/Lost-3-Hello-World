@@ -1,0 +1,13 @@
+.random-element {
+  position: absolute;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 10px;
+  text-align: center;
+}
+
+.source {
+  font-size: 5px;
+}
