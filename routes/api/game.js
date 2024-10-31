@@ -7,7 +7,7 @@ router.post('/morning', Controller.morning)
 router.post('/pascal', Controller.pascal)
 router.get('/majority/player-url', Controller.getVoteUrl)
 router.post('/majority/swipe-rfid', Controller.swipeRFID)
-router.post('/readChip/detect-rfid', Controller.detectRFID)
+router.post('/read-chip/detect-rfid', Controller.detectRFID)
 router.post('/hex', Controller.hex)
 router.post('/snake', Controller.snake)
 router.post('/tomb', Controller.tomb);

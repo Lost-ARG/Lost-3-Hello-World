@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: title });
 });
 
-router.get('/signUp', function(req, res, next) {
+router.get('/sign-up', function(req, res, next) {
   res.render('signUp', { title: title });
 });
 
@@ -49,11 +49,11 @@ router.get('/pascal', function(req, res, next) {
 });
 
 // Level 4
-router.get('/readChip/idle', function(req, res, next) {
+router.get('/read-chip/idle', function(req, res, next) {
   res.render('readChip/idle', { title: title });
 });
 
-router.get('/readChip/data', function(req, res, next) {
+router.get('/read-chip/data', function(req, res, next) {
   res.render('readChip/data', { title: title });
 });
 

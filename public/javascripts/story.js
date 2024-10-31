@@ -112,7 +112,7 @@ const updateTeamProgress = (teamCode, storyCode) => {
       redirect: "follow"
     };
 
-    fetch("/api/team/updateProgress", requestOptions)
+    fetch("/api/team/update-progress", requestOptions)
       .then((response) => response.json())
       .then((result) =>{
         console.log(result);

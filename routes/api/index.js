@@ -16,7 +16,7 @@ router.use('/story', storyRouter);
 router.use('/game', gameRouter);
 router.use('/backstage', backstageRouter);
 router.use('/player', playerRouter);
-router.use('/signUp', signUpRouter)
+router.use('/sign-up', signUpRouter)
 
 
 module.exports = router;

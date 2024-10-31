@@ -115,7 +115,7 @@ const submitForm = () => {
     redirect: "follow"
   };
 
-  fetch("/api/signUp", requestOptions)
+  fetch("/api/sign-up", requestOptions)
     .then((response) => response.json())
     .then((result) => {
       let html;

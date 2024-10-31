@@ -6,7 +6,7 @@ const helloworld = (req, res) => {
   const formData = req.body;
   const ans = ["72", "101", "108", "108", "111", "87", "111", "114", "108", "100"];
   if (formData["answer"].join(",") === ans.join(",")) {
-    res.redirect('/signUp');
+    res.redirect('/sign-up');
     return;
   }
   res.send({ message: "wrong answer" })
@@ -61,7 +61,7 @@ const detectRFID = async (req, res) => {
     const { uid, tagPresent } = req.body;
 
     if (!tagPresent) {
-      socket.io.emit("readChip/absent", { url: "/readChip/idle" });
+      socket.io.emit("readChip/absent", { url: "/read-chip/idle" });
     } else {
       const rfids = await findRFID({ uid });
       if (rfids.length === 0) {
@@ -73,7 +73,7 @@ const detectRFID = async (req, res) => {
         res.send({ status: 400 })
         return;
       }
-      socket.io.emit("readChip/present", { url: "/readChip/data" });
+      socket.io.emit("readChip/present", { url: "/read-chip/data" });
     }
 
     res.send({ status: 200 })

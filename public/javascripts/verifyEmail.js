@@ -11,7 +11,7 @@ const verifyEmail = () => {
     redirect: "follow"
   };
 
-  fetch(`/api/signUp/verify-email/${email}/${hash}`, requestOptions)
+  fetch(`/api/sign-up/verify-email/${email}/${hash}`, requestOptions)
     .then((response) => response.json())
     .then((result) => {
       modalBody.innerHTML = `<span>${result["message"]}</span>`;
