@@ -48,6 +48,29 @@ router.get('/pascal', function(req, res, next) {
   res.render('pascal', { title: title });
 });
 
+// Level 3
+router.get('/after-class', function(req, res, next) {
+  const subUrl = ['ncnu', 'occult', 'science', 'club'];
+  const url = '/after-class/' + subUrl[Math.floor(Math.random() * subUrl.length)];
+  res.redirect(url);
+});
+
+router.get('/after-class/ncnu', function(req, res, next) {
+  res.render('afterClass/ncnu', { title: title });
+});
+
+router.get('/after-class/occult', function(req, res, next) {
+  res.render('afterClass/occult', { title: title });
+});
+
+router.get('/after-class/science', function(req, res, next) {
+  res.render('afterClass/science', { title: title });
+});
+
+router.get('/after-class/club', function(req, res, next) {
+  res.render('afterClass/club', { title: title });
+});
+
 // Level 4
 router.get('/read-chip/idle', function(req, res, next) {
   res.render('readChip/idle', { title: title });

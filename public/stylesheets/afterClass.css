@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'Poneglyph';
+    src: url('/fonts/Poneglyph.ttf')
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #27272A;
+    color: black;
+    margin: 0;
+    overflow: hidden;
+}
+
+.poneglyph {
+    font-family: 'Poneglyph', sans-serif;
+    background-color: #be1b1b;
+    text-align: center;
+    width: 300px;
+    height: 300px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 23px;
+    line-height: 1;
+    word-break: break-all;
+    overflow: hidden;
+}
+
+img {
+    max-width: 85vw;
+}
