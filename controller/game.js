@@ -42,7 +42,7 @@ const getVoteUrl = (req, res) => {
 const swipeRFID = async (req, res) => {
   try {
     const { uid } = req.body;
-    const rfids = await findRFID({ uid });
+    const rfids = await findRFID({ uid, type: "card" });
     if (rfids.length === 0) {
       res.send({ status: 404 })
       return;
