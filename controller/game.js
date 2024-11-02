@@ -145,6 +145,16 @@ const maze = (req, res) => {
   res.send({ status: 200, storyCode: process.env.LEVEL_16_STORY_CODE });
 }
 
+const graduate = (req, res) => {
+  const formData = req.body;
+  const ans = "portal";
+  if (formData["answer"] === ans) {
+    res.send({ status: 200, storyCode: process.env.LEVEL_9_STORY_CODE });
+    return;
+  }
+  res.send({ status: 400 });
+}
+
 
 module.exports = {
   helloworld,
@@ -156,5 +166,6 @@ module.exports = {
   hex,
   snake,
   tomb,
-  maze
+  maze,
+  graduate
 }

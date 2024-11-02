@@ -100,6 +100,15 @@ router.get('/weird', function(req, res, next) {
   res.render('weird', { title: title, sourceUrl: process.env.LEVEL_8_SOURCE_URL });
 });
 
+// Level 9
+router.get('/graduate/sign', function(req, res, next) {
+  res.render('graduate/sign', { title: title, sourceUrl: process.env.LEVEL_8_SOURCE_URL });
+});
+
+router.get('/graduate/tower', function(req, res, next) {
+  res.render('graduate/tower', { title: title, sourceUrl: process.env.LEVEL_8_SOURCE_URL });
+});
+
 // Level 13
 router.get('/majority/board', function(req, res, next) {
   res.render('majority/board', { title: title });

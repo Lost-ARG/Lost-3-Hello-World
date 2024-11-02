@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'ChenYuluoyan-Thin-Monospaced';
+    src: url('/fonts/ChenYuluoyan-Thin-Monospaced.ttf')
+}
+
+#poem {
+    font-family: 'ChenYuluoyan-Thin-Monospaced', sans-serif;
+    font-size: 28px;
+}
+
+img {
+    max-width: 80vw;
+    max-height: 70vh;
+}
