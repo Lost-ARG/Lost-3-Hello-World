@@ -3,15 +3,19 @@ const sendRequest = () => {
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
-  const raw = JSON.stringify({
+  const raw = {
     "uid": document.querySelector("[name='uid']").value,
     "type": document.querySelector("[name='type']").value
-  });
+  };
+
+  if(raw["type"] !== "tag" && raw["type"] !== "card") {
+    return;
+  }
 
   const requestOptions = {
     method: "POST",
     headers: myHeaders,
-    body: raw,
+    body: JSON.stringify(raw),
     redirect: "follow"
   };
 

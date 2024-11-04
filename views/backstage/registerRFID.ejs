@@ -19,27 +19,27 @@
     </div>
     <div class="row mt-4">
       <div class="col-lg-4 m-auto border pt-5 pb-5">
-        <form method="post" action="/api/backstage/register-rfid">
-          <div class="row mb-1">
-            <div class="col-4 d-flex align-items-center justify-content-center"><label id="basic-addon1">Card ID</label></div>
-            <div class="col-8"><input name="uid" type="text" class="form-control" placeholder="Card ID"></div>
+        <div class="row mb-1">
+          <div class="col-4 d-flex align-items-center justify-content-center"><label id="basic-addon1">Card ID</label>
           </div>
-          <div class="row mb-1">
-            <div class="col-4 d-flex align-items-center justify-content-center"><label id="basic-addon1">Type</label></div>
-            <div class="col-8">
-              <select class="form-select" id="inputGroupSelect01" name="type">
-                <option selected>Choose...</option>
-                <option value="tag">Tag</option>
-                <option value="card">Card</option>
-              </select>
-            </div>
+          <div class="col-8"><input name="uid" type="text" class="form-control" placeholder="Card ID"></div>
+        </div>
+        <div class="row mb-1">
+          <div class="col-4 d-flex align-items-center justify-content-center"><label id="basic-addon1">Type</label>
           </div>
-          <div class="row mt-5">
-            <div class="col-12 m-auto text-center">
-              <button class="btn btn-primary w-50" type="button" onclick="sendRequest()">Save</button>
-            </div>
+          <div class="col-8">
+            <select class="form-select" id="inputGroupSelect01" name="type" required>
+              <option selected>Choose...</option>
+              <option value="tag">Tag</option>
+              <option value="card">Card</option>
+            </select>
           </div>
-        </form>
+        </div>
+        <div class="row mt-5">
+          <div class="col-12 m-auto text-center">
+            <button class="btn btn-primary w-50" type="button" onclick="sendRequest()">Save</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
