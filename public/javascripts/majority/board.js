@@ -1,5 +1,6 @@
 const socket = io();
 const sleep = ms => new Promise(rs => setTimeout(rs, ms));
+let needFlush = false;
 
 const showResult = async (data) => {
   const voteResult = document.querySelector("#vote-result");
@@ -26,14 +27,23 @@ const removeResult = () => {
   voteResult.innerHTML = "";
 }
 
-// show vote result
-socket.on('vote/show', args => {
-  showResult(args);
-})
+const flush = () => {
+  if(needFlush) {
+    window.location.reload();
+  }
+}
 
+// show vote result
+socket.on('vote/show', async args => {
+  showResult(args);
+  await sleep(30 * 1000);
+  needFlush = true;
+  flush();
+})
 
 socket.on('vote/reset', args => {
   removeResult(args);
+  needFlush = false;
 })
 
 const getVoteUrl = () => {
