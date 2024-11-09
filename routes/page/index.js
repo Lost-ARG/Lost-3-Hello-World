@@ -155,5 +155,14 @@ router.get('/maze', function(req, res, next) {
   res.render('maze', { title: title });
 });
 
+// Level 18
+router.get('/almost', function(req, res, next) {
+  res.render('almost', { title: title });
+});
+
+router.get('/last', function(req, res, next) {
+  res.render('last', { title: title, storyCode: process.env.LEVEL_18_STORY_CODE });
+});
+
 
 module.exports = router;

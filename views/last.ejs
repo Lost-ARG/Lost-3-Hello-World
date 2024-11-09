@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <%= title %>
+  </title>
+  <%- include('models/bs_css.ejs') %>
+</head>
+
+<body>
+  <div class="container text-center">
+    <div class="row mt-5">
+      <div class="col-lg-4 col-12 m-auto">
+        <span>Well, this is the last one, congrats.</span><br>
+        <span>And here is the code, keep it secret.</span><br>
+        <span class="fw-bolder"><%= storyCode %></span><br>
+        <a href="/story">Use The Code</a>
+      </div>
+    </div>
+  </div>
+  <%- include('models/bs_js.ejs') %>
+</body>
+
+</html>
