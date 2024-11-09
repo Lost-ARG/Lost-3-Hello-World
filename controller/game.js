@@ -155,6 +155,16 @@ const graduate = (req, res) => {
   res.send({ status: 400 });
 }
 
+const doom = (req, res) => {
+  const formData = req.body;
+  const ans = "世界注定毀滅";
+  if (formData["answer"] === ans) {
+    res.send({ status: 200, storyCode: process.env.LEVEL_10_STORY_CODE });
+    return;
+  }
+  res.send({ status: 400 });
+}
+
 
 module.exports = {
   helloworld,
@@ -167,5 +177,6 @@ module.exports = {
   snake,
   tomb,
   maze,
-  graduate
+  graduate,
+  doom
 }

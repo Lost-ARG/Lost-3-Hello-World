@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <%= title %>
+  </title>
+  <%- include('./models/bs_css.ejs') %>
+  <link rel="stylesheet" href="/stylesheets/doom.css">
+</head>
+
+<body>
+  <!-- Modal -->
+  <div class="modal fade" id="result" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center text-dark">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row mt-5">
+      <div id="poem" class="col-lg-6 col-12 m-auto p-0 text-start list-group">
+        <ol class="list-group list-group-numbered">
+          <li class="list-group-item">毀滅是無法避免的，唯有準備迎接。</li>
+          <li class="list-group-item">注定會發生的事情最終會發生，無論你如何試圖避開它。</li>
+          <li class="list-group-item">如果注定要發生什麼，那它無論如何都會發生。</li>
+          <li class="list-group-item">現在的世界是所有可能世界中最好的。</li>
+          <li class="list-group-item">在感官世界中，是不可能取得知識的。</li>
+          <li class="list-group-item">人可以被毀滅，但不能被打敗。</li>
+        </ol>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-lg-8 col-12 m-auto text-center">
+        <div class="input-group mb-3 w-75 m-auto">
+          <input id="input" type="text" class="form-control" placeholder="">
+          <button class="btn btn-outline-secondary" type="button" id="submit" onclick="submitAns()">Submit</button>
+        </div>
+      </div>
+    </div>
+
+    <%- include('./models/bs_js.ejs') %>
+    <script src="/javascripts/doom.js"></script>
+</body>
+
+</html>

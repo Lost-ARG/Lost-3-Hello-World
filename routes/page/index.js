@@ -109,6 +109,11 @@ router.get('/graduate/tower', function(req, res, next) {
   res.render('graduate/tower', { title: title });
 });
 
+// Level 10
+router.get('/doom', function(req, res, next) {
+  res.render('doom', { title: title });
+});
+
 // Level 11
 router.get('/book', function(req, res, next) {
   res.render('book', { title: title });
