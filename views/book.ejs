@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <%= title %>
+  </title>
+  <%- include('./models/bs_css.ejs') %>
+    <link rel="stylesheet" href="/stylesheets/book.css">
+</head>
+
+<body>
+  <div class="container-fluid text-center">
+    <div class="row mt-5">
+      <div id="poem" class="col-lg-8 col-12 m-auto">
+        離海面最遠的一幢灰白，<br>
+        四方柱立撐起的巨大門宇，<br>
+        穿門而入，<br>
+        進入白紙堆疊的展場，<br>
+        找尋書面上的記事，<br>
+        明天，又會是同樣的一天吧。<br>
+      </div>
+    </div>
+  </div>
+
+  <%- include('./models/bs_js.ejs') %>
+</body>
+
+</html>
