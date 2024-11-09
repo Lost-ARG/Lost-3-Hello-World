@@ -14,6 +14,7 @@ router.post('/tomb', Controller.tomb);
 router.post('/maze', Controller.maze);
 router.post('/graduate', Controller.graduate);
 router.post('/doom', Controller.doom);
+router.post('/handouts', Controller.handouts);
 
 
 module.exports = router;

@@ -145,6 +145,11 @@ router.get('/snake', function(req, res, next) {
   res.render('snake', { title: title });
 });
 
+// Level 15
+router.get('/handouts', function(req, res, next) {
+  res.render('handouts', { title: title });
+});
+
 // Level 16
 router.get('/maze', function(req, res, next) {
   res.render('maze', { title: title });

@@ -165,6 +165,16 @@ const doom = (req, res) => {
   res.send({ status: 400 });
 }
 
+const handouts = (req, res) => {
+  const formData = req.body;
+  const ans = "吾乃漆黑之元祖";
+  if (formData["answer"] === ans) {
+    res.send({ status: 200, storyCode: process.env.LEVEL_15_STORY_CODE });
+    return;
+  }
+  res.send({ status: 400 });
+}
+
 
 module.exports = {
   helloworld,
@@ -178,5 +188,6 @@ module.exports = {
   tomb,
   maze,
   graduate,
-  doom
+  doom,
+  handouts
 }
