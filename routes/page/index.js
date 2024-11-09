@@ -119,6 +119,11 @@ router.get('/book', function(req, res, next) {
   res.render('book', { title: title });
 });
 
+// Level 12
+router.get('/decision', function(req, res, next) {
+  res.render('decision', { title: title });
+});
+
 // Level 13
 router.get('/majority/board', function(req, res, next) {
   res.render('majority/board', { title: title });
