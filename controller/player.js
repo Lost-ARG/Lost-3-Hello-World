@@ -25,7 +25,7 @@ const login = async (req, res) => {
       res.redirect('/player/login');
       return;
     }
-    req.session.team = formData['teamcode']
+    req.session.teamCode = formData['teamcode']
     res.redirect(`/player?team=${formData["teamcode"]}`)
   } catch (error) {
     res.redirect('/player/login');
