@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= title %></title>
   <%- include('models/bs_css.ejs') %>
-  <link rel="stylesheet" href="/stylesheets/index.css">
-  <link rel="stylesheet" href="https://chinese-fonts-cdn.deno.dev/packages/hwmct/dist/汇文明朝体/result.css">
+    <link rel="stylesheet" href="/stylesheets/index.css">
+    <link rel="stylesheet" href="https://chinese-fonts-cdn.deno.dev/packages/hwmct/dist/汇文明朝体/result.css">
 </head>
 
 <body class="bg-black text-light">
@@ -19,19 +19,28 @@
       </div>
       <div class="row">
         <img src="/images/banner.gif" alt="">
-        <div class="row mt-5 m-auto">
+        <div class="row mt-3 m-auto">
           <div class="col-md-8 m-auto">
             <div class="row">
-              <div class="col-md-4">
-                世界並非如你想像...
-              </div>
-              <div class="col-md-4">
-                所見所聞並非真實...
-              </div>
-              <div class="col-md-4">
-                你相信什麼...?
+              <div class="col">
+                你可曾聽說過 DejaVu？ <br>
+                也就是所謂的既視感，面對初次接觸的事物，卻彷彿曾經經歷過。<br>
+                你也有過這樣的經驗嗎？<br>
+                人們都說：每天都是新的一天！所有事物都是新的，要用迎接新事物的心來面對每一天！<br>
+                既然如此，那些總是忽然出現、又如同黏膩的迷霧般纏繞在腦海中的既視感又是怎麼一回事呢？
               </div>
             </div>
+          </div>
+        </div>
+        <div class="row m-auto">
+          <div class="col-lg-6 col-12 m-auto p-2">
+            <a class="link-light d-inline-block m-1" href="https://www.facebook.com/ncnu.occultscience"><img src="/images/icon_fb.png" alt="" srcset="">
+              暨大神秘科學研究社
+            </a>
+            <a class="link-light d-inline-block m-1" href="https://www.instagram.com/ncnu.occultscience">
+              <img src="/images/icon_ig.png" alt="" srcset="">
+              @NCNU.OCCULTSCIENCE
+            </a>
           </div>
         </div>
       </div>
@@ -39,7 +48,7 @@
   </main>
 
   <%- include('models/bs_js.ejs') %>
-  <script src="/javascripts/index.js"></script>
+    <script src="/javascripts/index.js"></script>
 </body>
 
 </html>
