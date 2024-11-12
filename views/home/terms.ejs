@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <%- include('../models/bs_css.ejs') %>
+  <link rel="stylesheet" href="/stylesheets/info.css">
+</head>
+
+<body class="bg-black text-light">
+  <%- include('../models/index_navbar.ejs') %>
+  <div class="container-fluid text-center mb-5">
+    <img src="/images/banner.gif">
+    <div class="row mb-5">
+      <div class="col-lg-6 m-auto">
+        <div class="row mb-3 fs-5">
+          <h1>2024 Lost 3 - Hello World 活動條款</h1>
+        </div>
+        <div class="row mb-3 fs-5 text-start">
+          <div class="col">
+            <ol>
+              <li>參加者須年滿 18 歲，或在監護人同意下參加。</li>
+              <li>參加者需擁有可穩定使用的電子設備（如手機或電腦）和網路連線，以完成線上部分的解謎過程。</li>
+              <li>活動分為線上和線下兩個部分，參加者需完成線上解謎後才能參加線下部分。</li>
+              <li>參加者應自願並自費參與活動，活動主辦方對活動過程中的任何意外、損失或損害概不負責。</li>
+              <li>參加者的個人資料將僅用於活動管理及聯絡用途，不會外洩或用於其他商業用途。</li>
+              <li>活動中所涉及的所有內容（包括但不限於圖片、文字、謎題等）為主辦方或其合作方的版權所有，禁止未經授權的轉載、公開或用於商業用途。</li>
+              <li>主辦方有權基於不可抗力或其他正當理由，隨時終止或變更活動內容。</li>
+              <li>活動結束後將依據參加者的成績發放獎勵。具體獎勵條件與內容以活動網站的公告為準。</li>
+              <li>本活動條款受所在地相關法律的管轄。主辦方保留對本活動條款的最終解釋權。</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include('../models/bs_js.ejs') %>
+  <script src="/javascripts/index.js"></script>
+</body>
+
+</html>
