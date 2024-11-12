@@ -17,6 +17,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: title });
 });
 
+router.get('/info', function(req, res, next) {
+  res.render('home/info', { title: title });
+});
+
 router.get('/sign-up', function(req, res, next) {
   res.render('signUp', { title: title });
 });

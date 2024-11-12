@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <%- include('../models/bs_css.ejs') %>
+  <link rel="stylesheet" href="/stylesheets/info.css">
+</head>
+
+<body class="bg-black text-light">
+  <%- include('../models/index_navbar.ejs') %>
+  <div class="container-fluid text-center mb-5">
+    <img src="/images/banner.gif">
+    <div class="row mb-5">
+      <div class="col-lg-6 m-auto">
+        <div class="row mb-3 fs-5">
+          <div class="col-lg-4">活動名稱</div>
+          <div class="col-lg-8">Lost 3 - Hello World ARG</div>
+        </div>
+        <div class="row mb-3 fs-5">
+          <div class="col-lg-4">報名時間</div>
+          <div class="col-lg-8">即日起至 2024/11/27(三) 每日凌晨 00:00 - 00:30</div>
+        </div>
+        <div class="row mb-3 fs-5">
+          <div class="col-lg-4">報名費用</div>
+          <div class="col-lg-8">
+            三人一組為單位，每單位新台幣 450 元<br>
+            報名費用僅供活動籌辦使用，無營利目的，若有剩餘將會退還
+          </div>
+        </div>
+        <div class="row mb-3 fs-5">
+          <div class="col-lg-4">活動時間</div>
+          <div class="col-lg-8">2024/11/30(六) - 2024/12/13(五)</div>
+        </div>
+        <div class="row mb-3 fs-5">
+          <div class="col-lg-4">活動資格</div>
+          <div class="col-lg-8">國立暨南國際大學全體師生</div>
+        </div>
+        <div class="row mb-3 fs-5">
+          <div class="col-lg-4">活動內容</div>
+          <div class="col-lg-8">發掘世界的真相，走向你所期望的未來</div>
+        </div>
+        <div class="row mb-3 fs-5">
+          <div class="col-lg-4">主辦單位</div>
+          <div class="col-lg-8">推理研究社xMOLi 創新開放自造者實驗室</div>
+        </div>
+        <div class="row mb-3 fs-5">
+          <div class="col-lg-4">協辦單位</div>
+          <div class="col-lg-8">山立坊教育團、桌上遊戲社、資訊管理學系</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include('../models/bs_js.ejs') %>
+  <script src="/javascripts/index.js"></script>
+</body>
+
+</html>
