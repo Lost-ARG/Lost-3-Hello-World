@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <%- include('../models/bs_css.ejs') %>
+  <link rel="stylesheet" href="/stylesheets/info.css">
+</head>
+
+<body class="bg-black text-light">
+  <%- include('../models/index_navbar.ejs') %>
+  <div class="container-fluid text-center mb-5">
+    <img src="/images/banner.gif">
+    <div class="row mb-5">
+      <div class="col-lg-6 m-auto">
+        <div class="row mb-3 fs-5">
+          <h1>2024 Lost 3 - Hello World 活動聲明書</h1>
+        </div>
+        <div class="row mb-3 fs-5 text-start">
+          <div class="col">
+            <ol>
+              <li>參加者於參加本活動之同時，即同意接受本活動之活動辦法與注意事項之規範，如有違反，主辦單位及協辦單位得取消其參加或得獎資格，並就因此所生之損害，得向參加者請求損害賠償。</li>
+              <li>
+                參加者保證所有填寫或提出之資料均為真實且正確，且未冒用或盜用任何第三人之資料。如有不實或不正確之情事，將被取消參加或得獎資格。
+                <ul>
+                  <li>如因此致主辦單位及協辦單位無法聯絡參賽隊伍，則視同放棄領獎資格，主辦單位有權以其他參賽隊伍之成績予以遞補。</li>
+                  <li>如因此致主辦單位及協辦單位無法通知其得獎訊息時，主辦單位及協辦單位不負任何責任，且如有致損害於主辦單位及協辦單位或其他任何第三人，參加者應負一切相關責任。</li>
+                </ul>
+              </li>
+              <li>本活動之報名費，待活動結束後，經主辦單位結算活動收支且有剩餘，另訂時間以現金無息退還。</li>
+              <li>本活動各獎項得獎者，必須提供相關身分證明文件及其他必要文件，若有不全、有誤、造假者，主辦單位有權取消得獎資格。倘致主辦單位受有損害者，該獎項得主應負相關法律責任。</li>
+              <li>參加者同意主辦單位及協辦單位於辦理本活動得獎聯絡事宜、活動分析或其他活動網頁上所聲明之特定使用目的範圍內，使用參加者所填寫之個人資料。主辦單位及協辦單位。</li>
+              <li>本活動獎項以公佈於本網站上的資料為準，如遇不可抗力之因素，主辦單位及協辦單位 保留更換其他等值獎項之權利。</li>
+              <li>如本活動因不可抗力之特殊原因無法執行時，主辦單位及協辦單位有權決定取消、終止、修改或暫停本活動。</li>
+              <li>為記錄本活動，主辦單位所拍攝之相關照片及影像，參賽者必須同意無償提供為進行本活動或推廣本活動使用、編輯、印刷、展示、宣傳或公開上述個人肖像、姓名及聲音等。</li>
+              <li>本活動內容以主辦單位最新公告為準，若有其他未盡事宜，主辦單位並保留所有相關活動最終解釋權與活動更改之權利。</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include('../models/bs_js.ejs') %>
+  <script src="/javascripts/index.js"></script>
+</body>
+
+</html>
