@@ -4,13 +4,10 @@ html {
   margin: 0px
 }
 
-body {
-  font-family: "Huiwen-mincho";
-}
-
 main {
+  font-family: "Huiwen-mincho";
   display: flex;
-  height: 100vh;
+  height: 90vh;
 }
 
 .main-content {
