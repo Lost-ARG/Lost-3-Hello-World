@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <%- include('../models/bs_css.ejs') %>
+  <link rel="stylesheet" href="/stylesheets/info.css">
+</head>
+
+<body class="bg-black text-light">
+  <%- include('../models/index_navbar.ejs') %>
+  <div class="container-fluid text-center mb-5">
+    <img src="/images/banner.gif">
+    <div class="row mb-5">
+      <div class="col-lg-6 m-auto">
+        <div class="row mb-3 fs-5">
+          <h1>2024 Lost 3 - Hello World 常見問題 (FAQ)</h1>
+        </div>
+        <div class="row mb-3 fs-5 text-start">
+          <div class="col">
+            <ol>
+              <li><strong>什麼是 ARG 解謎活動？</strong>
+                <ul>
+                  <li>ARG (替代現實遊戲) 解謎活動是一種將虛擬線上元素和現實世界結合的互動遊戲。參加者需要在不同的線索之間來回穿梭，解開謎題，完成挑戰。</li>
+                </ul>
+              </li>
+              <li><strong>是否需要自備設備？</strong>
+                <ul>
+                  <li>參加者需自備可穩定連接網路的電子設備，如手機或電腦，以完成線上部分的解謎過程。</li>
+                </ul>
+              </li>
+              <li><strong>線下活動會在哪裡舉辦？</strong>
+                <ul>
+                  <li>實體關卡範圍皆在暨大校內。</li>
+                </ul>
+              </li>
+              <li><strong>活動有哪些獎勵？</strong>
+                <ul>
+                  <li>活動將依據參加者的成績發放獎勵。獎勵內容會於活動網站上公佈，請隨時關注。</li>
+                </ul>
+              </li>
+              <li><strong>如果因故無法參加線下部分，會影響得獎資格嗎？</strong>
+                <ul>
+                  <li>是的，若無法完成全部關卡（包括線下部分），將無法獲得完整參加資格，可能影響得獎資格。</li>
+                </ul>
+              </li>
+              <li><strong>活動會如何處理我的個人資訊？</strong>
+                <ul>
+                  <li>主辦單位僅會將您的個人資訊用於活動管理及聯絡用途，不會外洩或用於其他商業用途。</li>
+                </ul>
+              </li>
+              <li><strong>若在活動中遺失個人財物或遇到意外，主辦單位會負責嗎？</strong>
+                <ul>
+                  <li>參加者需自行負責安全和財物管理。活動主辦方對活動過程中的任何意外、損失或損害不負責。</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include('../models/bs_js.ejs') %>
+  <script src="/javascripts/index.js"></script>
+</body>
+
+</html>
