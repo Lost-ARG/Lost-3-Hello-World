@@ -13,6 +13,10 @@ router.get('/rfid-list', adminLoginCheck, Controller.RFIDList);
 router.get('/payment-search', adminLoginCheck, Controller.paymentSearch);
 router.post('/change-paid-stat', adminLoginCheck, Controller.changePaidStat);
 router.get('/search-team-by-paid', adminLoginCheck, Controller.searchTeamByPaid);
+router.get('/notice-list', Controller.noticeList);
+router.get('/notice', Controller.notice);
+router.post('/create-notice', Controller.createNotice);
+router.post('/update-notice', Controller._updateNotice);
 
 
 module.exports = router;

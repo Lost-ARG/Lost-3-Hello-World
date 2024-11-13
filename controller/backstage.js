@@ -8,6 +8,7 @@ dayjs.extend(timezone);
 const { findAdmin } = require('../service/database/adminService');
 const { findTeam, updateTeam } = require('../service/database/teamService');
 const { creatRFID, findRFID } = require('../service/database/RFIDService');
+const { findNotice, creatNotice, updateNotice } = require('../service/database/noticeService');
 
 
 const login = async (req, res) => {
@@ -136,6 +137,58 @@ const searchTeamByPaid = async (req, res) => {
   }
 }
 
+const noticeList = async (req, res) => {
+  try {
+    const raw = await findNotice();
+    const notices = [];
+    for (let i = 0; i < raw.length; i += 1) {
+      notices.push(raw[i].toObject());
+      notices[i]["createdAt"] = dayjs(notices[i]["createdAt"]).utc("Z").format('YYYY-MM-DD HH:mm');
+      notices[i]["updatedAt"] = dayjs(notices[i]["updatedAt"]).utc("Z").format('YYYY-MM-DD HH:mm');
+    }
+    res.send({ status: 200, notices });
+  } catch (error) {
+    console.error(error);
+    res.send({ status: 500 });
+  }
+}
+
+const notice = async (req, res) => {
+  try {
+    const { _id } = req.query;
+
+    const notice = await findNotice({ _id });
+    res.send({ status: 200, data: notice[0] })
+  } catch (error) {
+    res.send({ status: 500 })
+    console.error(error);
+  }
+}
+
+const createNotice = async (req, res) => {
+  try {
+    const { title, content, isVisible } = req.body;
+    const createdAt = dayjs();
+    await creatNotice({ title, content, createdAt, isVisible })
+    res.send({ status: 200 })
+  } catch (error) {
+    console.error(error);
+    res.send({ status: 500 });
+  }
+}
+
+const _updateNotice = async (req, res) => {
+  try {
+    const { _id, title, content, isVisible } = req.body;
+    await updateNotice({ _id }, { title, content, updatedAt: dayjs(), isVisible })
+    res.send({ status: 200 })
+  } catch (error) {
+    console.error(error);
+    res.send({ status: 500 });
+  }
+}
+
+
 module.exports = {
   login,
   logout,
@@ -146,4 +199,8 @@ module.exports = {
   paymentSearch,
   changePaidStat,
   searchTeamByPaid,
+  noticeList,
+  notice,
+  createNotice,
+  _updateNotice,
 }

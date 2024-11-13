@@ -34,5 +34,17 @@ router.get('/team-payment', adminLoginCheck, function(req, res, next) {
   res.render('backstage/teamPayment', { title: title });
 });
 
+router.get('/create-notice', adminLoginCheck, function(req, res, next) {
+  res.render('backstage/createNotice', { title: title });
+});
+
+router.get('/notice-list', adminLoginCheck, function(req, res, next) {
+  res.render('backstage/noticeList', { title: title });
+});
+
+router.get('/notice', adminLoginCheck, function(req, res, next) {
+  res.render('backstage/notice', { title: title });
+});
+
 
 module.exports = router;

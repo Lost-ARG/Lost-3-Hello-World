@@ -21,6 +21,14 @@ router.get('/info', function(req, res, next) {
   res.render('home/info', { title: title });
 });
 
+router.get('/notice-list', function(req, res, next) {
+  res.render('home/noticeList', { title: title });
+});
+
+router.get('/notice', function(req, res, next) {
+  res.render('home/notice', { title: title });
+});
+
 router.get('/faq', function(req, res, next) {
   res.render('home/faq', { title: title });
 });

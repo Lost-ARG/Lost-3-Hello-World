@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <%- include('../models/bs_css.ejs') %>
+  <link rel="stylesheet" href="/stylesheets/home.css">
+</head>
+
+<body class="bg-black text-light">
+  <%- include('../models/index_navbar.ejs') %>
+  <div class="container-fluid text-center mb-5">
+    <img src="/images/banner.gif">
+    <div class="row mb-5">
+      <div class="col-lg-6 m-auto">
+        <div class="row mb-3 fs-5">
+          <h1 id="title">活動公告</h1>
+        </div>
+        <div class="row mb-5">
+          <div id="content" class="col fs-3">
+
+          </div>
+        </div>
+        <div class="row">
+          <div id="updatedAt" class="col fs-5">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include('../models/bs_js.ejs') %>
+  <script src="/javascripts/notice.js"></script>
+</body>
+
+</html>

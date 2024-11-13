@@ -1,5 +1,7 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+
+const Controller = require('../../controller/index');
 
 const jwtRouter = require('./jwt');
 const teamRouter = require('./team');
@@ -18,5 +20,7 @@ router.use('/backstage', backstageRouter);
 router.use('/player', playerRouter);
 router.use('/sign-up', signUpRouter)
 
+router.get('/notice-list', Controller.noticeList)
+router.get('/notice', Controller.notice)
 
 module.exports = router;

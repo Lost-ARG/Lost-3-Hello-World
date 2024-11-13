@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Backstage Notice</title>
+  <%- include('../models/bs_css.ejs') %>
+</head>
+
+<body class="bg-dark text-light">
+  <!-- Modal -->
+  <div class="modal fade" id="result" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center text-dark">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include('./nav.ejs') %>
+  <div class="container text-center">
+    <div class="row mt-5">
+      <div class="col-lg-6 m-auto">
+        <h1>Backstage Notice</h1>
+        <hr class="mt-5">
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-lg-8 m-auto border pt-5 pb-5">
+        <div class="row mb-1">
+          <div class="col-4 d-flex align-items-center justify-content-center"><label id="basic-addon1">公告標題</label>
+          </div>
+          <div class="col-8"><input name="title" type="text" class="form-control" placeholder="公告標題"></div>
+        </div>
+        <div class="row mb-1">
+          <div class="col-4 d-flex align-items-center justify-content-center"><label id="basic-addon1">公開設定</label>
+          </div>
+          <div class="col-8">
+            <select class="form-select" id="inputGroupSelect01" name="isVisible" required>
+              <option value="true" selected>公開</option>
+              <option value="false">不公開</option>
+            </select>
+          </div>
+        </div>
+        <div class="row mb-1">
+          <div class="col-4 d-flex align-items-center justify-content-center"><label id="basic-addon1">公告內容</label>
+          </div>
+          <div class="col-8">
+            <textarea class="form-control" name="content" id="floatingTextarea" placeholder="使用 html 格式"></textarea>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col-12 m-auto text-center">
+            <button class="btn btn-primary w-50" type="button" onclick="sendRequest()">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%- include('../models/bs_js.ejs') %>
+  <script src="/javascripts/backstage/notice.js"></script>
+</body>
+
+</html>

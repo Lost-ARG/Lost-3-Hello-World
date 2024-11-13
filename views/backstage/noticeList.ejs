@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Backstage Notice List</title>
+  <%- include('../models/bs_css.ejs') %>
+</head>
+
+<body class="bg-dark text-light">
+  <%- include('./nav.ejs') %>
+  <div class="container pt-5">
+    <div class="row text-center m-auto">
+      <h1>Notice List</h1>
+
+      <table class="table table-dark table-hover mt-5 fs-5 ">
+        <thead class="table-light">
+          <tr>
+            <th scope="col" class="col-2">#</th>
+            <th scope="col" class="col-2">日期</th>
+            <th scope="col" class="col-8">公告</th>
+          </tr>
+        </thead>
+        <tbody id="notice-list">
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+  <%- include('../models/bs_js.ejs') %>
+  <script src="/javascripts/backstage/noticeList.js"></script>
+</body>
+
+</html>

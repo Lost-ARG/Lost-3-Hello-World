@@ -9,17 +9,44 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/backstage">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/backstage/team-list">Team List</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Team
+          </a>
+          <ul class="dropdown-menu">
+            <li class="nav-item">
+              <a class="nav-link" href="/backstage/team-list">Team List</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/backstage/team-payment">Team Payment</a>
+            </li>
+          </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/backstage/rfid-list">RFID List</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            RFID
+          </a>
+          <ul class="dropdown-menu">
+            <li class="nav-item">
+              <a class="nav-link" href="/backstage/rfid-list">RFID List</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/backstage/register-rfid">Register RFID</a>
+            </li>
+          </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/backstage/register-rfid">Register RFID</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/backstage/team-payment">Team Payment</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Notice
+          </a>
+          <ul class="dropdown-menu">
+            <li class="nav-item">
+              <a class="nav-link" href="/backstage/notice-list">Notice List</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/backstage/create-notice">Create Notice</a>
+            </li>
+          </ul>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/api/backstage/logout">Logout</a>
