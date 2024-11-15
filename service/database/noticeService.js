@@ -1,4 +1,4 @@
-const Notice = require('../../model/Notice');
+const Notice = require('../../model/notice');
 
 const creatNotice = async (data) => {
   try {
