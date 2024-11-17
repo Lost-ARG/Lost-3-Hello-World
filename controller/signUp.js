@@ -162,7 +162,10 @@ const signUp = async (req, res) => {
       message: `
         報名完成，請所有成員至 email 信箱收取信件<br>
         若未收到信件請聯絡主辦粉專<br>
-        <a href="https://www.facebook.com/ncnu.occultscience">暨大神秘科學研究社</a>
+        <a href="https://www.facebook.com/ncnu.occultscience">暨大神秘科學研究社</a><br>
+        並請盡速至<br>
+        管理學院 237 室 MOLi 或 學生活動中心 403 推理研究社社辦<br>
+        完成繳費
         `
       });
 
