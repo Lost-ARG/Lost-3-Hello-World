@@ -146,7 +146,7 @@ router.get('/book', function(req, res, next) {
 
 // Level 13
 router.get('/decision', function(req, res, next) {
-  res.render('decision', { title: title, openingHours: openingHours.level_12 });
+  res.render('decision', { title: title, openingHours: openingHours.level_13 });
 });
 
 router.get('/majority/board', function(req, res, next) {
