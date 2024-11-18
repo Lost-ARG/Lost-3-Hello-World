@@ -141,7 +141,7 @@ router.get('/doom', function(req, res, next) {
 
 // Level 11
 router.get('/book', function(req, res, next) {
-  res.render('book', { title: title });
+  res.render('book', { title: title, openingHours: openingHours.level_11 });
 });
 
 // Level 12
