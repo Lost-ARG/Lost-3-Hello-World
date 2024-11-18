@@ -3,6 +3,13 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const dayjs = require("dayjs");
+const utc = require("dayjs/plugin/utc");
+const timezone = require("dayjs/plugin/timezone");
+// 初始化 Day.js 插件
+dayjs.extend(utc);
+dayjs.extend(timezone);
+
 const multer = require('multer');
 const session = require('express-session');
 const sessionConfig = require('./config/session');
@@ -11,6 +18,9 @@ const scheduler = require("./scheduler");
 
 var indexRouter = require('./routes/page');
 var apiRouter = require('./routes/api');
+
+// 設定時區
+const timeZone = "Asia/Taipei";
 
 var app = express();
 
@@ -24,7 +34,12 @@ scheduler.init();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(logger('common'));
+// 自定義 Morgan 的日誌格式，添加時區時間戳
+logger.token("date", () => {
+  return dayjs().tz(timeZone).format("YYYY-MM-DD HH:mm:ss Z");
+});
+
+app.use(logger("[:date] :method :url :status :res[content-length] - :response-time ms "));
 app.use(express.json());
 app.use(multer().array());
 app.use(express.urlencoded({ extended: true }));
