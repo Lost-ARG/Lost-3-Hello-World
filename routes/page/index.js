@@ -112,7 +112,7 @@ router.get('/hex', function(req, res, next) {
 
 // Level 6
 router.get('/tomb', function(req, res, next) {
-  res.render('tomb', { title: title });
+  res.render('tomb', { title: title, openingHours: openingHours.level_6 });
 });
 
 // Level 7
