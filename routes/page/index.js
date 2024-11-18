@@ -171,7 +171,7 @@ router.get('/snake', function(req, res, next) {
 
 // Level 15
 router.get('/handouts', function(req, res, next) {
-  res.render('handouts', { title: title });
+  res.render('handouts', { title: title, openingHours: openingHours.level_15 });
 });
 
 // Level 16
