@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <%- include('../models/bs_css.ejs') %>
+  <link rel="stylesheet" href="/stylesheets/afterClass.css">
+</head>
+
+<body>
+  <%- include('../models/bs_js.ejs') %>
+  <%- include('../models/openingHours.ejs') %>
+  <script>
+    openingHoursModal.addEventListener('hide.bs.modal', () => {
+      window.location.href = "<%= url %>"
+    });
+  </script>
+</body>
+
+</html>

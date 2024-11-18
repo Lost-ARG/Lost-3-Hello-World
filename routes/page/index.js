@@ -4,6 +4,7 @@ const router = express.Router();
 const backstageRouter = require('./backstage');
 const playerRouter = require('./player');
 const { verify } = require('../../service/jwtService');
+const openingHours = require('../../config/openingHours');
 
 require('dotenv').config()
 
@@ -76,7 +77,7 @@ router.get('/pascal', function(req, res, next) {
 router.get('/after-class', function(req, res, next) {
   const subUrl = ['ncnu', 'occult', 'science', 'club'];
   const url = '/after-class/' + subUrl[Math.floor(Math.random() * subUrl.length)];
-  res.redirect(url);
+  res.render("afterClass/afterClass", { title, openingHours: openingHours.level_3, url });
 });
 
 router.get('/after-class/ncnu', function(req, res, next) {

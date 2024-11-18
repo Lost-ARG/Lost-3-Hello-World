@@ -1,0 +1,26 @@
+<!-- Modal -->
+<div class="modal fade" id="openingHours" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center text-dark">
+        <h1>關卡場地開放時間</h1>
+        <h2>
+          <%= openingHours %>
+        </h2>
+        <h3>請玩家注意時間前往</h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  const openingHoursModal = document.getElementById('openingHours')
+  const myModal = new bootstrap.Modal(openingHoursModal);
+  myModal.show();
+</script>
