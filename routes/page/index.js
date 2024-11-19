@@ -18,6 +18,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: title });
 });
 
+router.get('/ending', function(req, res, next) {
+  res.render('ending', { title: title, ending_url: process.env.ENDING_URL });
+});
+
 router.get('/info', function(req, res, next) {
   res.render('home/info', { title: title });
 });

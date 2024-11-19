@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <%- include('./models/bs_css.ejs') %>
+  <link rel="stylesheet" href="/stylesheets/ending.css">
+</head>
+
+<body class="d-flex align-items-center justify-content-center">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <div class="content">
+          <h1>Congratulations!</h1>
+          <p>You have unveiled the ultimate truth.</p>
+          <p>The world will remember your courage and intelligence.</p>
+          <button class="button" onclick="window.location.href='<%= ending_url %>'">
+            Last piece...
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
