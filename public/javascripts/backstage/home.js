@@ -17,7 +17,6 @@ socket.on('team-info', teamInfo => {
   let fastestTeam = teamInfo[fastest];
   for (let i = 0; i < teamInfo.length; i += 1) {
     const curTeam = teamInfo[i];
-    fastestTeam = teamInfo[fastest]
     // 檢查驗證 email
     if (
       curTeam['members']['member_1']['email_verify']
@@ -40,6 +39,7 @@ socket.on('team-info', teamInfo => {
         fastest = i;
       }
     }
+    fastestTeam = teamInfo[fastest];
 
   }
   signUpNumElement.innerHTML = signUpNum;
