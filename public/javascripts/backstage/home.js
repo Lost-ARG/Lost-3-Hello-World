@@ -35,7 +35,7 @@ socket.on('team-info', teamInfo => {
       // 同進度，比時間
       const curLevelTime = new Date(curLevel["timestamp"]);
       const fastestLevelTime = new Date(fastestLevel["timestamp"]);
-      if (curLevelTime > fastestLevelTime) {
+      if (curLevelTime < fastestLevelTime) {
         fastest = i;
       }
     }
