@@ -22,6 +22,10 @@ router.get('/ending', function(req, res, next) {
   res.render('ending', { title: title, ending_url: process.env.ENDING_URL });
 });
 
+router.get('/ranking', function(req, res, next) {
+  res.render('ranking', { title: title });
+});
+
 router.get('/info', function(req, res, next) {
   res.render('home/info', { title: title });
 });

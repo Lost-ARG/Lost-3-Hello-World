@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.leaderboard {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 600px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+#ranking-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    height: 70vh;
+    /* 確保列表容器有固定高度 */
+}
+
+#ranking-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 7vh;
+    /* 每個列表項目的高度 */
+    padding: 0 10px;
+    box-sizing: border-box;
+    /* 確保內邊距不影響高度 */
+    border-bottom: 1px solid #ddd;
+    background: #f9f9f9;
+    transition: transform 0.5s ease, background-color 0.3s ease;
+    position: absolute;
+    /* 絕對定位以配合動畫 */
+    width: 100%;
+}
+
+#ranking-list li span {
+    font-size: 16px;
+}
+
+#ranking-list li .rank {
+    font-weight: bold;
+    color: #555;
+}

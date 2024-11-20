@@ -1,5 +1,5 @@
 const { findStory } = require("../service/database/storyService");
-const { findTeam, updateTeamProgress } = require("../service/database/teamService");
+const { findTeam, updateTeamProgress, teamRank } = require("../service/database/teamService");
 
 const updateProgress = async (req, res) => {
   try {
@@ -39,7 +39,17 @@ const updateProgress = async (req, res) => {
   }
 }
 
+const ranking = async (req, res) => {
+  try {
+    const rank = await teamRank();
+    res.send({ status: 200, data: rank })
+  } catch (error) {
+    console.error(error);
+    res.send({ status: 500 });
+  }
+}
 
 module.exports = {
   updateProgress,
+  ranking,
 }

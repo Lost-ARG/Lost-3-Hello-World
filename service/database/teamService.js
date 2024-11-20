@@ -98,6 +98,58 @@ const updateTeam = async (condition = {}, data = {}) => {
   }
 };
 
+const teamRank = async () => {
+  try {
+    const rank = await Team.aggregate([
+      {
+        $addFields: {
+          lastGameProgress: { $arrayElemAt: ["$game_progress", -1] }, // Get the last game progress
+          score: { $ifNull: [{ $arrayElemAt: ["$game_progress.level", -1] }, 0] } // Extract level safely
+        }
+      },
+      {
+        $sort: {
+          "lastGameProgress.level": -1,     // Sort by level descending
+          "lastGameProgress.timestamp": 1  // Sort by timestamp ascending
+        }
+      },
+      {
+        $project: {
+          name: 1, // Include name
+          game_progress: {
+            $map: {
+              input: "$game_progress", // Iterate over the game_progress array
+              as: "gp",
+              in: {
+                level: "$$gp.level",    // Include only the fields you want
+                timestamp: "$$gp.timestamp"
+              }
+            }
+          },
+          members: {
+            member_1: {
+              $cond: { if: { $eq: [{ $type: "$members.member_1" }, "object"] }, then: { name: "$members.member_1.name", id: "$members.member_1.id", email: "$members.member_1.email" }, else: null }
+            },
+            member_2: {
+              $cond: { if: { $eq: [{ $type: "$members.member_2" }, "object"] }, then: { name: "$members.member_2.name", id: "$members.member_2.id", email: "$members.member_2.email" }, else: null }
+            },
+            member_3: {
+              $cond: { if: { $eq: [{ $type: "$members.member_3" }, "object"] }, then: { name: "$members.member_3.name", id: "$members.member_3.id", email: "$members.member_3.email" }, else: null }
+            }
+          },
+          code: 1,             // Include code
+          lastGameProgress: 1, // Include lastGameProgress for reference
+          score: 1,            // Include score
+          _id: 0               // Exclude _id
+        }
+      }
+    ]);
+    return rank;
+  } catch (error) {
+    throw new Error(`Get Team Rank Failed, Error: ${error.message}`);
+  }
+};
+
 
 module.exports = {
   creatTeam,
@@ -106,4 +158,5 @@ module.exports = {
   updateTeamProgress,
   updateTeamEmailVerify,
   updateTeam,
+  teamRank,
 }
