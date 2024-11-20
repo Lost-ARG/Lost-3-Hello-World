@@ -46,5 +46,9 @@ router.get('/notice', adminLoginCheck, function(req, res, next) {
   res.render('backstage/notice', { title: title });
 });
 
+router.get('/statistic', adminLoginCheck, function(req, res, next) {
+  res.render('backstage/statistic', { title: title });
+});
+
 
 module.exports = router;

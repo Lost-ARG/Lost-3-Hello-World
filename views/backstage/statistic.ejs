@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Backstage RFID List</title>
+  <%- include('../models/bs_css.ejs') %>
+</head>
+
+<body class="bg-dark text-light">
+  <%- include('./nav.ejs') %>
+  <div class="container pt-5">
+    <div class="row text-center m-auto">
+      <h1>Statistics</h1>
+      <div class="col-lg-8 m-auto mt-5">
+        <div class="row text-center fs-5 border-bottom pb-1 pt-1">
+          <div class="col-lg-2 d-flex align-items-center fw-bolder">隊伍報表</div>
+          <div class="col-lg-8 d-flex align-items-center">所有隊伍的最高通關紀錄、隊員資訊、每一關的紀錄</div>
+          <div class="col-lg-2 btn btn-primary d-flex align-items-center justify-content-center" onclick="getStatistic('teams')">Download</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%- include('../models/bs_js.ejs') %>
+  <script src="/javascripts/backstage/statistic.js"></script>
+</body>
+
+</html>

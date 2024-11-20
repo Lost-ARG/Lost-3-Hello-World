@@ -3,6 +3,7 @@ const router = express.Router();
 
 const Controller = require('../../controller/index');
 
+const statisticRouter = require('./statistic');
 const jwtRouter = require('./jwt');
 const teamRouter = require('./team');
 const storyRouter = require('./story');
@@ -12,6 +13,7 @@ const playerRouter = require('./player');
 const signUpRouter = require('./signUp');
 
 
+router.use('/statistic', statisticRouter);
 router.use('/jwt', jwtRouter);
 router.use('/team', teamRouter);
 router.use('/story', storyRouter);
