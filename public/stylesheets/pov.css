@@ -1,0 +1,26 @@
+body {
+    height: 100vh;
+}
+
+#slideshow {
+    position: relative;
+    height: 70vh;
+    max-height: 70vw;
+    overflow: hidden;
+}
+
+#slideshow img {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+    max-height: 100%;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+#slideshow img.active {
+    opacity: 1;
+}

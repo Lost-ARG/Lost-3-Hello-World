@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <%- include('./models/bs_css.ejs') %>
+  <link rel="stylesheet" href="/stylesheets/pov.css">
+</head>
+
+<body class="bg-dark text-light d-flex align-items-center justify-content-center">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <h1>我在哪裡?</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div id="slideshow" class="col">
+        <img id="night" src="/images/pov_night.jpg" alt="" srcset="">
+        <img id="day" src="/images/pov_day.jpg" alt="" srcset="">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        瓜田不納履 /
+        李下不整冠 /
+        <strong>竹前不言謝 /</strong>
+        墓旁不喧嘩
+      </div>
+    </div>
+  </div>
+  <%- include('./models/bs_js.ejs') %>
+  <script src="/javascripts/pov.js"></script>
+</body>
+
+</html>

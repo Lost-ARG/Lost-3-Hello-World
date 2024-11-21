@@ -187,6 +187,11 @@ router.get('/maze', function(req, res, next) {
   res.render('maze', { title: title });
 });
 
+// Level 17
+router.get('/pov', function(req, res, next) {
+  res.render('pov', { title: title });
+});
+
 // Level 18
 router.get('/almost', function(req, res, next) {
   res.render('almost', { title: title });
