@@ -104,10 +104,6 @@ const drawPlayerAndGoal = () => {
 const controls = document.querySelector('.controls');
 const controlBtns = controls.querySelectorAll('button');
 
-controlBtns.forEach(btn => {
-  btn.addEventListener("click", handleMove)
-})
-window.addEventListener("keydown", handleMove, true);
 
 const handleMove = (event) => {
   if(!gameStart) {
@@ -164,6 +160,11 @@ const handleMove = (event) => {
       break;
   }
 }
+
+controlBtns.forEach(btn => {
+  btn.addEventListener("click", handleMove)
+})
+window.addEventListener("keydown", handleMove, true);
 
 const movePlayer = (deltaX, deltaY) => {
   moveCount += 1;
