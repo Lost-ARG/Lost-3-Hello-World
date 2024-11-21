@@ -12,7 +12,7 @@ const config = {
     resave: true,
     saveUninitialized: false,
     cookie: {
-      maxAge: 2 * 60 * 60 * 1000, // 共 2 個小時
+      maxAge: 8 * 60 * 60 * 1000, // 共 8 個小時
       secure: true,
       sameSite: 'none',
     },
@@ -24,7 +24,7 @@ const config = {
     resave: true,
     saveUninitialized: false,
     cookie: {
-      maxAge: 2 * 60 * 60 * 1000, // 共 2 個小時
+      maxAge: 8 * 60 * 60 * 1000, // 共 8 個小時
       secure: false,
       sameSite: 'lax',
     },
@@ -36,7 +36,7 @@ const config = {
     resave: true,
     saveUninitialized: false,
     cookie: {
-      maxAge: 2 * 60 * 60 * 1000, // 共 2 個小時
+      maxAge: 8 * 60 * 60 * 1000, // 共 8 個小時
       secure: false,
       sameSite: 'lax',
     },
