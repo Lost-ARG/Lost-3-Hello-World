@@ -84,7 +84,7 @@ io.on("connection", (socket) => {
     } else {
       conclusion = "back";
     }
-    const storyCode_13_1 = process.env.LEVEL_13_1_STORY_CODE;
+    const storyCode_13_1 = process.env.LEVEL_13_STORY_CODE;
     const storyCode_13_2 = process.env.LEVEL_13_2_STORY_CODE;
 
     const response = {
