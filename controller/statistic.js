@@ -14,7 +14,7 @@ function formatTimestamp(timestamp) {
 
 const teams = async (req, res) => {
   try {
-    const rank = await teamRank();
+    const rank = await teamRank(true);
     // Convert data to a format suitable for Excel
     const excelData = rank.map(team => {
       // Initialize the level columns from Level_0 to Level_18

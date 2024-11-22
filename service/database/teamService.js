@@ -97,8 +97,7 @@ const updateTeam = async (condition = {}, data = {}) => {
     throw new Error(`Update Team Failed, Condition: ${JSON.stringify(condition)}, Data: ${JSON.stringify(data)}, Error: ${error.toString()}`);
   }
 };
-
-const teamRank = async () => {
+const teamRank = async (member = false) => {
   try {
     const rank = await Team.aggregate([
       {
@@ -126,17 +125,33 @@ const teamRank = async () => {
               }
             }
           },
-          members: {
-            member_1: {
-              $cond: { if: { $eq: [{ $type: "$members.member_1" }, "object"] }, then: { name: "$members.member_1.name", id: "$members.member_1.id", email: "$members.member_1.email" }, else: null }
-            },
-            member_2: {
-              $cond: { if: { $eq: [{ $type: "$members.member_2" }, "object"] }, then: { name: "$members.member_2.name", id: "$members.member_2.id", email: "$members.member_2.email" }, else: null }
-            },
-            member_3: {
-              $cond: { if: { $eq: [{ $type: "$members.member_3" }, "object"] }, then: { name: "$members.member_3.name", id: "$members.member_3.id", email: "$members.member_3.email" }, else: null }
+          ...(member
+            ? {
+              members: {
+                member_1: {
+                  $cond: {
+                    if: { $eq: [{ $type: "$members.member_1" }, "object"] },
+                    then: { name: "$members.member_1.name", id: "$members.member_1.id", email: "$members.member_1.email" },
+                    else: null
+                  }
+                },
+                member_2: {
+                  $cond: {
+                    if: { $eq: [{ $type: "$members.member_2" }, "object"] },
+                    then: { name: "$members.member_2.name", id: "$members.member_2.id", email: "$members.member_2.email" },
+                    else: null
+                  }
+                },
+                member_3: {
+                  $cond: {
+                    if: { $eq: [{ $type: "$members.member_3" }, "object"] },
+                    then: { name: "$members.member_3.name", id: "$members.member_3.id", email: "$members.member_3.email" },
+                    else: null
+                  }
+                }
+              }
             }
-          },
+            : {}),
           code: 1,             // Include code
           lastGameProgress: 1, // Include lastGameProgress for reference
           score: 1,            // Include score
