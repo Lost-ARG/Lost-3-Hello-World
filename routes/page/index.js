@@ -68,7 +68,7 @@ router.get('/goto', actTimeCheck, function(req, res, next) {
 });
 
 // Level -1
-router.get('/helloworld', actTimeCheck, function(req, res, next) {
+router.get('/helloworld', function(req, res, next) {
   res.render('helloworld', { title: title });
 });
 

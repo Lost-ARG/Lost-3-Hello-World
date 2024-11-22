@@ -3,7 +3,7 @@ const router = express.Router();
 const Controller = require('../../controller/game');
 const { actTimeCheck } = require('../../middleware/timeCheck');
 
-router.post('/helloworld', actTimeCheck, Controller.helloworld)
+router.post('/helloworld', Controller.helloworld)
 router.post('/morning', actTimeCheck, Controller.morning)
 router.post('/pascal', actTimeCheck, Controller.pascal)
 router.get('/majority/player-url', Controller.getVoteUrl)
