@@ -10,7 +10,12 @@ const getStory = async (req, res) => {
 
   story = story.toObject();
 
-  const divergent = ["PVKFN", "B7GWL", "RM4XR", "23F3H"];
+  const divergent = [
+    process.env.LEVEL_5_STORY_CODE,
+    process.env.LEVEL_5_1_STORY_CODE,
+    process.env.LEVEL_13_STORY_CODE,
+    process.env.LEVEL_13_1_STORY_CODE,
+  ];
   story["divergent"] = false;
   if (divergent.includes(storyCode)) {
     story["divergent"] = true;
