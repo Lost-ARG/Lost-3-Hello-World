@@ -23,6 +23,7 @@ var apiRouter = require('./routes/api');
 const timeZone = "Asia/Taipei";
 
 var app = express();
+app.enable("trust proxy");
 
 app.use(session(sessionConfig));
 connectDB();
@@ -39,7 +40,7 @@ logger.token("date", () => {
   return dayjs().tz(timeZone).format("YYYY-MM-DD HH:mm:ss Z");
 });
 
-app.use(logger("[:date] :method :url :status :res[content-length] - :response-time ms "));
+app.use(logger("[:date] :remote-addr :method :url :status :res[content-length] - :response-time ms "));
 app.use(express.json());
 app.use(multer().array());
 app.use(express.urlencoded({ extended: true }));
