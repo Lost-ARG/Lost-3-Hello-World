@@ -7,7 +7,7 @@ html {
 main {
   font-family: "Huiwen-mincho";
   display: flex;
-  height: 90vh;
+  height: 100%;
 }
 
 .main-content {

@@ -33,6 +33,26 @@
             </div>
           </div>
         </div>
+
+        <div class="row mt-3 m-auto">
+          <div class="col-lg-6 m-auto">
+            <div class="row mb-1 fs-5">
+              <h1>活動公告</h1>
+            </div>
+            <table class="table table-dark table-hover mt-2 fs-5">
+              <thead class="table-light">
+                <tr>
+                  <th scope="col" class="col-2">#</th>
+                  <th scope="col" class="col-4">日期</th>
+                  <th scope="col" class="col-6">公告</th>
+                </tr>
+              </thead>
+              <tbody id="notice-list">
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
         <div class="row m-auto">
           <div class="col-lg-6 col-12 m-auto p-2">
             <a class="link-light d-inline-block m-1 w-100" href="https://www.facebook.com/ncnu.occultscience">
@@ -51,6 +71,7 @@
 
   <%- include('models/bs_js.ejs') %>
     <script src="/javascripts/index.js"></script>
+    <script src="/javascripts/noticeList.js"></script>
 </body>
 
 </html>
