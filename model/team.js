@@ -8,9 +8,9 @@ const gameProgressSchema = new Schema({
 
 // 定義成員 Schema
 const memberSchema = new Schema({
-  name: { type: String, required: true },
-  id: { type: String, required: true },
-  email: { type: String, required: true },
+  name: { type: String },
+  id: { type: String },
+  email: { type: String },
   email_verify: { type: Boolean, default: false }
 });
 

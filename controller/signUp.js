@@ -72,6 +72,14 @@ const verifyData = async (data) => {
     const invalid = [];
 
     for (const key in dataEnum) {
+      if(key === "member_2" || key === "member_3") {
+        const name = data[key]["name"];
+        const id = data[key]["id"];
+        const email = data[key]["email"];
+        if(!(name || id || email)) {
+          continue;
+        }
+      }
       for (const subKey in dataEnum[key]) {
         const val = data[key][subKey];
         // 檢查資料格式 {status: 400, message: '無效的 XXX'}
@@ -95,7 +103,13 @@ const verifyData = async (data) => {
               memberObj[subKey].push(val);
             }
             // 檢查不同隊成員資料重複(學號信箱兩個欄位皆必須是 unique) {status: 400, message: '成員已註冊'}
-            const condition = { [`members.${key}.${subKey}`]: val };
+            const condition = {
+              $or: [
+                { [`members.member_1.${subKey}`]: val },
+                { [`members.member_2.${subKey}`]: val },
+                { [`members.member_3.${subKey}`]: val }
+              ]
+            };
             const duplicate = await findTeam(condition);
             if (!(duplicate.length === 0)) {
               invalid.push(`${dataEnum[key][subKey]}已註冊`);
@@ -149,8 +163,10 @@ const signUp = async (req, res) => {
     teamData["game_progress"] = {}
     const team = await creatTeam(teamData);
     // 發送驗證信箱 Email
-    const teamEmails = Object.values(team["members"]).map(member => member.email);
-    const mailTemplateData = teamEmails.map(email => ({
+    const teamEmails = Object.values(team["members"]).filter(member => member.email).map(member => member.email);
+    const mailTemplateData = teamEmails
+    .filter(email => email) // Skip null or undefined emails
+    .map(email => ({
       teamCode: team["code"],
       emailHash: crypto.createHmac('sha256', salt).update(email).digest('hex'),
       email,
@@ -159,8 +175,7 @@ const signUp = async (req, res) => {
 
     sendTeamMail(teamEmails, "Lost 3 活動報名驗證信", "signUp", mailTemplateData);
     res.send({ status: 200,
-      message: `
-        報名完成，請所有成員至 email 信箱收取信件<br>
+      message: `報名完成，請所有成員至 email 信箱收取信件<br>
         若未收到信件請聯絡主辦粉專<br>
         <a href="https://www.facebook.com/ncnu.occultscience">暨大神秘科學研究社</a><br>
         並請盡速至<br>

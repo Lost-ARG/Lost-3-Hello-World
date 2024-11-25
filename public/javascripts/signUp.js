@@ -88,6 +88,14 @@ const submitForm = () => {
   }
 
   for (const key in data) {
+    if(key === "member_2" || key === "member_3") {
+      const name = raw.get(`${key}_name`)
+      const id = raw.get(`${key}_id`)
+      const email = raw.get(`${key}_email`)
+      if(!(name || id || email)) {
+        continue;
+      }
+    }
     for (let subKey in data[key]) {
       const val = raw.get(`${key}_${subKey}`);
       if (val === null || !(regexp[`${subKey}Check`].test(val))) {
@@ -118,7 +126,7 @@ const submitForm = () => {
   fetch("/api/sign-up", requestOptions)
     .then((response) => response.json())
     .then((result) => {
-      let html;
+      let html = "";
       if(result['status'] === 200) {
         form.reset()
       } else {

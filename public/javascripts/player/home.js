@@ -40,6 +40,14 @@ const fillMembers = (data) => {
   let html = "";
   // 放入全部隊員的資料
   for (const key in data) {
+    if(key === "member_2" || key === "member_3") {
+      const name = data[key]["name"];
+      const id = data[key]["id"];
+      const email = data[key]["email"];
+      if(!(name || id || email)) {
+        continue;
+      }
+    }
     const element = data[key];
     html += `<div class="row m-auto mb-5">`;
     html += `<div class="col-2 p-0 d-flex align-items-center justify-content-center">${keyName[key]}</div>`;
