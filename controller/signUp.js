@@ -194,7 +194,6 @@ const signUp = async (req, res) => {
 const verifyEmail = async (req, res) => {
   try {
     const { email, emailHash } = req.params;
-    console.log(email, emailHash);
     if (!(crypto.createHmac('sha256', salt).update(email).digest('hex') === emailHash)) {
       res.send({ status: 400, message: "Email 驗證失敗" });
       return;
