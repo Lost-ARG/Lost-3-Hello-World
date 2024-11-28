@@ -17,12 +17,16 @@ socket.on('team-info', teamInfo => {
   let fastestTeam = teamInfo[fastest];
   for (let i = 0; i < teamInfo.length; i += 1) {
     const curTeam = teamInfo[i];
+    // 先計算這隊有多少隊員
+    member = 1;
+    if(curTeam['members']['member_2']['email']) member += 1;
+    if(curTeam['members']['member_3']['email']) member += 1;
+    verify = member;
     // 檢查驗證 email
-    if (
-      curTeam['members']['member_1']['email_verify']
-      && curTeam['members']['member_2']['email_verify']
-      && curTeam['members']['member_3']['email_verify']
-    ) {
+    if (curTeam['members']['member_1']['email_verify']) verify -= 1;
+    if (curTeam['members']['member_2']['email_verify']) verify -= 1;
+    if (curTeam['members']['member_3']['email_verify']) verify -= 1;
+    if (verify === 0) {
       verifyNum += 1;
     }
     // 找最快的隊伍
