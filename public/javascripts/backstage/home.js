@@ -48,7 +48,7 @@ socket.on('team-info', teamInfo => {
   }
   signUpNumElement.innerHTML = signUpNum;
   verifyNumElement.innerHTML = verifyNum;
-  fastestTeamElement.innerHTML = fastestTeam['name'];
+  fastestTeamElement.innerHTML = `[ ${fastestTeam['code']} ] ${fastestTeam['name']}`;
   latestProgressElement.innerHTML = fastestTeam["game_progress"][fastestTeam["game_progress"].length - 1]["level"];
 })
 

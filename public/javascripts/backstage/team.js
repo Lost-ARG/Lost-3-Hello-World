@@ -21,9 +21,9 @@ const getTeamData = () => {
   })
 }
 
-const fillTeamName = (name) => {
+const fillTeamName = (code, name) => {
   const teamNameElement = document.getElementById("team-name");
-  teamNameElement.innerHTML = name;
+  teamNameElement.innerHTML = `${code} ${name}`;
 }
 
 const fillMembers = (data) => {
@@ -88,7 +88,7 @@ const fillProgress = (data) => {
 }
 
 const fillData = (data) => {
-  fillTeamName(data["name"]);
+  fillTeamName(data["code"], data["name"]);
   fillMembers(data["members"]);
   fillProgress(data["game_progress"]);
 }
