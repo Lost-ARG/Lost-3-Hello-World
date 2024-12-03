@@ -77,7 +77,7 @@ const fillProgress = (data) => {
     html += `<div class="col-lg-4 col-12  d-flex align-items-center justify-content-center">第 ${data[i]["level"]} 關</div>`;
     html += `<div class="col-lg-8 col-12">`
     html += `<div class="row">`;
-    html += `<div class="col-12">開始時間</div>`;
+    html += `<div class="col-12">通過時間</div>`;
     html += `<div class="col-12">${data[i]["timestamp"]}</div>`;
     html += `</div>`;
     html += `</div>`;

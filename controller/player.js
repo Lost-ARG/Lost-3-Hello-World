@@ -39,7 +39,7 @@ const team = async (req, res) => {
     const team = (await findTeam({ code: teamCode }))[0].toObject();
     for (let i = 0; i < team["game_progress"].length; i += 1) {
       const time = team["game_progress"][i]["timestamp"];
-      team["game_progress"][i]["timestamp"] = dayjs(time).utc("Z").tz("Asia/Taipei").format('YYYY-MM-DD HH:mm:ss');
+      team["game_progress"][i]["timestamp"] = dayjs(time).utc("Z").format('YYYY-MM-DD HH:mm:ss');
     }
     res.send({ status: 200, data: team })
   } catch (error) {
