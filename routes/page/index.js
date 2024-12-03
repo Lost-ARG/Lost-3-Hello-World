@@ -111,7 +111,7 @@ router.get('/read-chip/idle', actTimeCheck, function(req, res, next) {
 });
 
 router.get('/read-chip/data', actTimeCheck, function(req, res, next) {
-  res.render('readChip/data', { title: title });
+  res.render('readChip/data', { title: title, storyCode: process.env.LEVEL_4_STORY_CODE });
 });
 
 // Level 5
