@@ -87,7 +87,7 @@ const hex = (req, res) => {
   const formData = req.body;
   const ans = "學活403";
   if (formData["answer"] === ans) {
-    res.send({ status: 200, storyCode: process.env.LEVEL_4_STORY_CODE });
+    res.send({ status: 200, storyCode: process.env.LEVEL_5_STORY_CODE });
     return;
   }
   res.send({ status: 400 });
