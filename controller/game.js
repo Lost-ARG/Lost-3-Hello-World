@@ -34,7 +34,7 @@ const pascal = (req, res) => {
 
 const getVoteUrl = (req, res) => {
   const basicUrl = process.env.BASIC_URL;
-  const token = generate("3m");
+  const token = generate("10m");
   const voteUrl = `${basicUrl}/majority/player?token=${token}`;
   res.send({ status: 200, url: voteUrl });
 }

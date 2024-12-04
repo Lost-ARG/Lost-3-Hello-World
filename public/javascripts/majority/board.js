@@ -79,6 +79,6 @@ const showQRCode = async () => {
   }
 }
 
-setInterval(showQRCode, 3*60*1000); // 3 分鐘刷新一次
+setInterval(showQRCode, 10*60*1000); // 10 分鐘刷新一次
 
 showQRCode()
