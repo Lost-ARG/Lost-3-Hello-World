@@ -32,9 +32,9 @@ const updateProgress = async (req, res) => {
       return;
     } else if(progressSub > 0 && progressSub <= 1) {
       await updateTeamProgress({ code: teamCode }, { game_progress: { level: story[0]["progress_num"] } });
+      const msg = `隊伍 ${teamCode} - ${team[0]["name"]} 通過第 ${story[0]["progress_num"]} 關啦~`
+      dcBot.sendMessage(msg)
     }
-    const msg = `隊伍 ${teamCode} - ${team[0]["name"]} 通過第 ${story[0]["progress_num"]} 關啦~`
-    dcBot.sendMessage(msg)
     res.send({ status: 200 });
   } catch (error) {
     console.error(error);
