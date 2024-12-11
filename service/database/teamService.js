@@ -113,6 +113,11 @@ const teamRank = async (member = false) => {
         }
       },
       {
+        $match: {
+          code: { $ne: "T000" } // Exclude entries with code: "T000"
+        }
+      },
+      {
         $project: {
           name: 1, // Include name
           game_progress: {
